@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import Swiper from 'react-native-deck-swiper';
+import TabUnderlay from '../../components/TabUnderlay';
 import React from 'react'
 
 const SwiperScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'green', }}>
        <Swiper
-            cards={['wmjj', 'loop', 'llmk', 'djay', 'MAKES', 'YOU', 'HAPPY']}
+            cards={['wjj', 'oop', 'mkk', 'djay', 'MAKES', 'YOU', 'HAPPY']}
             renderCard={(card) => {
                 return (
                   <View style={styles.cardContainer}>
@@ -23,6 +24,7 @@ const SwiperScreen = () => {
            >
             
         </Swiper>
+        <TabUnderlay/>
     </View>
   )
 }
@@ -41,13 +43,14 @@ const styles = StyleSheet.create({
 
 
   cardContainer:{
-    flex: .86,
-    marginTop:30,
-    marginLeft:10,
-    marginRight:10,
-    borderRadius: 45,
+    flex: .88,
+
+    marginTop:55,
+    marginLeft:12,
+    marginRight:12,
+    borderRadius: 40,
     backgroundColor:'white',
-    shadowColor: "#828282",
+    shadowColor: "#686868",
     shadowOffset: {
       width: 0,
       height: 11,
