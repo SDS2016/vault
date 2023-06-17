@@ -8,8 +8,10 @@ import React from 'react'
 import Home from './Home';
 import Profile from './Profile';
 import Search from './Search';
-import Swiper from './Swiper';
+import SwiperScreen from './SwiperScreen';
 import Bag from './Bag';
+
+import SubscriptionDefault from '../../components/SubscriptionDefault';
 
 
 
@@ -28,7 +30,7 @@ function NavTabs() {
       
         
         screenOptions={{
-        headerShown:false,
+        // headerShown:false,
         tabBarActiveTintColor: 'black',
         tabBarShowLabel:false,
         tabBarStyle: {
@@ -83,7 +85,7 @@ function NavTabs() {
         />
         <Tab.Screen 
         name="Swiper" 
-        component={Swiper} 
+        component={SwiperScreen} 
         options={{
           headerShown:false,
           tabBarIcon: ({ color}) => 
@@ -95,7 +97,7 @@ function NavTabs() {
         name="Bag" 
         component={Bag}
         options={{
-          headerShown:false,
+          title:'Subscription',
           tabBarIcon: ({ color}) => 
           (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain', marginRight:13,}}source={require('/Users/ericfreeman/vaultApp/assests/BagTab.png')}/>)
           
@@ -118,9 +120,22 @@ function AppScreens() {
         
     }}
       >
-        <Stack.Screen name="NavTabs" component={NavTabs}/>
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Bag" component={Bag} />
+        <Stack.Screen name="Home" component={NavTabs}/>
+        <Stack.Screen 
+        name="Profile" 
+        component={Profile} 
+        options={{
+         
+          presentation:"modal",
+           
+        }}
+        
+        />
+        <Stack.Screen 
+        name="Subscriptions"  
+        component={Bag}
+        />
+
       </Stack.Navigator>
     );
   }
