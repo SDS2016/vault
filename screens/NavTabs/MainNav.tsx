@@ -97,7 +97,7 @@ function NavTabs() {
         name="Bag" 
         component={Bag}
         options={{
-          title:'Subscription',
+          
           tabBarIcon: ({ color}) => 
           (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain', marginRight:13,}}source={require('/Users/ericfreeman/vaultApp/assests/BagTab.png')}/>)
           
@@ -120,7 +120,7 @@ function AppScreens() {
         
     }}
       >
-        <Stack.Screen name="Home" component={NavTabs}/>
+        <Stack.Screen name="NavTabs" component={NavTabs}/>
         <Stack.Screen 
         name="Profile" 
         component={Profile} 
