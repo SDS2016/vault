@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
 
+////////////// assets import /////////////
+import RedXButton from '@assets/red-x-button.png';
+
 const Xbutton = () => {
   return (
     <View
@@ -32,7 +35,7 @@ const Xbutton = () => {
                 
                 
             }}
-            source={require('/Users/ericfreeman/vaultApp/assests/red-x-button.png')}
+            source={RedXButton}
             />
     </View>
   )

@@ -1,6 +1,10 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
+
+////////////// assets import /////////////
+import BackArrowButton from '@assets/black-arrow-button.png';
+
 const BackButton = () => {
   return (
     <View
@@ -32,7 +36,7 @@ const BackButton = () => {
                 
                 
             }}
-            source={require('/Users/ericfreeman/vaultApp/assests/black-arrow-button.png')}
+            source={BackArrowButton}
             />
     </View>
   )

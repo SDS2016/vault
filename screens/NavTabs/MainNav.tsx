@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
 
-
 ///// screen imports ///////////////////////////
 import Home from './Home';
 import Profile from './Profile';
@@ -11,7 +10,15 @@ import Search from './Search';
 import SwiperScreen from './SwiperScreen';
 import Bag from './Bag';
 
+////////////// components import /////////////
 import SubscriptionDefault from '../../components/SubscriptionDefault';
+
+////////////// assets import /////////////
+import HomeTabIcon from '@assets/HomeTab.png';
+import SearchTabIcon from '@assets/search.png';
+import ProfileTabIcon from '@assets/Profile.png';
+import SwiperTabIcon from '@assets/SwiperTab.png';
+import BagTabIcon from '@assets/BagTab.png';
 
 
 
@@ -59,7 +66,7 @@ function NavTabs() {
           headerShown:false,
           
           tabBarIcon: ({ color}) => 
-          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain', marginLeft:13, }}source={require('/Users/ericfreeman/vaultApp/assests/HomeTab.png')}/>)
+          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain', marginLeft:13, }} source={HomeTabIcon}/>)
           
           }}
         />
@@ -69,7 +76,7 @@ function NavTabs() {
         options={{
           headerShown:false,
           tabBarIcon: ({ color}) => 
-          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain' }}source={require('/Users/ericfreeman/vaultApp/assests/search.png')}/>)
+          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain' }} source={SearchTabIcon}/>)
           
           }}
         />
@@ -79,7 +86,7 @@ function NavTabs() {
         options={{
           headerShown:false,
           tabBarIcon: ({ color}) => 
-          (<Image style={{height:68, width:68, tintColor:color, resizeMode:'contain' }}source={require('/Users/ericfreeman/vaultApp/assests/Profile.png')}/>)
+          (<Image style={{height:68, width:68, tintColor:color, resizeMode:'contain' }} source={ProfileTabIcon}/>)
           
           }} 
         />
@@ -89,7 +96,7 @@ function NavTabs() {
         options={{
           headerShown:false,
           tabBarIcon: ({ color}) => 
-          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain' }}source={require('/Users/ericfreeman/vaultApp/assests/SwiperTab.png')}/>)
+          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain' }} source={SwiperTabIcon}/>)
           
           }}
         />
@@ -99,7 +106,7 @@ function NavTabs() {
         options={{
           
           tabBarIcon: ({ color}) => 
-          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain', marginRight:13,}}source={require('/Users/ericfreeman/vaultApp/assests/BagTab.png')}/>)
+          (<Image style={{height:45, width:45, tintColor:color, resizeMode:'contain', marginRight:13,}} source={BagTabIcon}/>)
           
           }} 
         />

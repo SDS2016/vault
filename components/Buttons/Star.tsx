@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
+////////////// assets import /////////////
+import StarButton from '@assets/star-button.png';
+
 const Star = () => {
   return (
     <View
@@ -32,7 +35,7 @@ const Star = () => {
                 
                 
             }}
-            source={require('/Users/ericfreeman/vaultApp/assests/star-button.png')}
+            source={StarButton}
             />
     </View>
   )

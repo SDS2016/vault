@@ -1,6 +1,10 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
+
+////////////// assets import /////////////
+import HeartButton from '@assets/heart-button.png';
+
 const Heart = () => {
   return (
     <View
@@ -31,7 +35,7 @@ const Heart = () => {
                 
                 
             }}
-            source={require('/Users/ericfreeman/vaultApp/assests/heart-button.png')}
+            source={HeartButton}
             />
     </View>
   )

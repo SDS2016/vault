@@ -2,6 +2,9 @@ import { StyleSheet,Image,Text, View } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 import React from 'react'
 
+////////////// import vault logo /////////////
+import VaultBlkLogo from "@assets/vault-blk-logo.png";
+
 const HomeLogoHeader = () => {
   return (
     
@@ -36,7 +39,7 @@ const HomeLogoHeader = () => {
                 height:50,
                 marginBottom:100,
                 }}
-            source={require('/Users/ericfreeman/vaultApp/assests/vault-blk-logo.png')}
+            source={VaultBlkLogo}
             />
         
         </View>
