@@ -1,31 +1,50 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import TabUnderlay from '../../components/TabUnderlay';
-import HomeLogoHeader from '../../components/HomeLogoHeader';
-import ProductCard from '../../components/ProductCard';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, FlatList, View,ActivityIndicator} from 'react-native'
+import TabUnderlay from '@components/TabUnderlay';
+import HomeLogoHeader from '@components/HomeLogoHeader';
+import ProductCard from '@components/ProductCard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+// import API functions
+import { getProducts } from '@api/StripeIntegration';
 
 const Home = () => {
+  const [loadingProducts, setLoadingProducts] = useState<Boolean>(true);
+  const [products, setProducts] = useState<[]>([]);
+
+
+  useEffect(() => {
+    getProducts().then((res: []) => {
+      setProducts(res);
+      setLoadingProducts(false);
+    })
+  },[])
+
   return (
-    <View style={{flex:1,backgroundColor:'#cacaca', justifyContent:"center", alignItems:"center",}}>
-       <HomeLogoHeader /> 
-       <ScrollView style={{backgroundColor:'#cacaca', width:'100%', paddingTop:150,paddingLeft:25, paddingRight:25,}}>  
-       <SafeAreaView>
-        
-        {/* <Text> hellojsoinvgjbs</Text>
-            <View style={{backgroundColor:'white', height:800, width:90,}}>
+    <View style={{ flex: 1, backgroundColor: '#cacaca', justifyContent: "center", alignItems: "center", }}>
+      <HomeLogoHeader />
+      <View style={{ backgroundColor: '#cacaca', width: '100%', paddingTop: 90, paddingLeft: 25, paddingRight: 25, }}>
+        <SafeAreaView>
+          {loadingProducts?
+            <ActivityIndicator size="large" />
+            :
+            <FlatList
+              data={products as Array<{ id: string }>}
+              renderItem={(item)=><ProductCard productInfo={item}/>}
+              keyExtractor={(item) => item.id}
+              numColumns={2}
+              showsVerticalScrollIndicator={false}
+            />
+          }
 
-            </View> */}
-       <ProductCard/>
         </SafeAreaView>
-         </ScrollView>
-        <TabUnderlay/>
-
       </View>
+      <TabUnderlay />
+    </View>
   )
 }
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+})

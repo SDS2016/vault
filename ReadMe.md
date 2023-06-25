@@ -31,3 +31,4 @@ After cleaning and buidling the application simply run the application in your p
 
 <img src="./assets/app_screenshots/appIcon.png" width="200"/>
 <img src="./assets/app_screenshots/splashScreen.png" width="200"/>
+<img src="./assets/app_screenshots/homeScreen.png" width="200"/>
