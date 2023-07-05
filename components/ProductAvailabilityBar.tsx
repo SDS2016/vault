@@ -6,7 +6,7 @@ const ProductAvailabilityBar = () => {
     <View
     style={{
         width:"50%" ,
-        height: '2%',
+        height: '3%',
         bottom:0,
         position:'absolute',
         borderBottomWidth: 6,

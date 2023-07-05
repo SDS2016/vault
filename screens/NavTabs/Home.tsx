@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, FlatList, View,ActivityIndicator} from 'react-native'
+import { Text,StyleSheet, FlatList, View,ActivityIndicator} from 'react-native'
 import TabUnderlay from '@components/TabUnderlay';
 import HomeLogoHeader from '@components/HomeLogoHeader';
 import ProductCard from '@components/ProductCard';
@@ -21,10 +21,18 @@ const Home = () => {
   },[])
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#cacaca', justifyContent: "center", alignItems: "center", }}>
+    <View style={{ flex: 1, backgroundColor: '#cacaca', }}>
       <HomeLogoHeader />
-      <View style={{ backgroundColor: '#cacaca', width: '100%', paddingTop: 90, paddingLeft: 25, paddingRight: 25, }}>
+      {/* /////////// the view directly below is for the spacing between the flatlist items /////////////// */}
+      <View style={{ backgroundColor: '#cacaca', width: '100%',marginTop:50, }}>
         <SafeAreaView>
+          
+          <View 
+          style={{ 
+            height:400,
+            backgroundColor:'#79fbff', width: '100%',marginTop:50, }}>
+            <Text> hello friend</Text>
+          </View>
           {loadingProducts?
             <ActivityIndicator size="large" />
             :
@@ -33,6 +41,14 @@ const Home = () => {
               renderItem={(item)=><ProductCard productInfo={item}/>}
               keyExtractor={(item) => item.id}
               numColumns={2}
+              ////////// columnWrapperStyle styles the flatlist items ///////////////
+              columnWrapperStyle={{justifyContent:'space-evenly',  }}
+              contentContainerStyle={{ 
+                width:'100%', 
+                justifyContent:'space-between', 
+                // backgroundColor:'pink',
+              }}
+              ItemSeparatorComponent={()=><View style={{ marginLeft:20, }}/>}
               showsVerticalScrollIndicator={false}
             />
           }

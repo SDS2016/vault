@@ -8,12 +8,13 @@ const ProductCard =(props)=> {
     <View style={styles.container}>
       <View style={styles.innerContainer}> 
               
-              <View style={{height:"80%",  alignItems:'center', }}>
-                <Text style={{fontFamily:'Helvetica Neue',fontSize:13, fontWeight:'500', marginBottom:5, marginTop:5, alignSelf:'center',}}>
+              <View style={{height:"75%",  alignItems:'center', }}>
+                <Text style={{fontFamily:'Helvetica Neue',fontSize:13, fontWeight:'500', marginBottom:5,  alignSelf:'center',}}>
                     {product.name}
                   </Text>
                   
-                  <View style={{marginTop:10,height:"50%", width:"100%",}}>
+
+                  <View style={{marginTop:2,marginBottom:12,height:"50%", width:"100%",}}>
                     <Image
                     style={{ height:90, width:120}}
                     source={{uri:product.images[0]}}
@@ -21,8 +22,18 @@ const ProductCard =(props)=> {
                   </View>
 
 
-                      <View style={{ marginRight:'3%', marginLeft:'3%',alignItems:'center', paddingBottom:5, borderBottomColor:'#d1d1d1', borderBottomWidth:2,}}>
-                        <Text numberOfLines={1} ellipsizeMode='clip' 
+                      <View 
+                      style={{ 
+                        width:'100%',
+                        // marginRight:'3%', 
+                        // marginLeft:'3%',
+                        alignItems:'center', 
+                        paddingBottom:5, 
+                        borderBottomColor:'#d1d1d1', 
+                        borderBottomWidth:2,
+                      //  backgroundColor:'green',
+                      }}>
+                        <Text numberOfLines={1} ellipsizeMode='clip'
                         style={{
                           marginTop:10, 
                           marginRight:7, 
@@ -36,12 +47,22 @@ const ProductCard =(props)=> {
                           </Text>
                       </View>
 
-                     <View style={{flex: 1, height: 1, backgroundColor: 'black'}} ></View>
+                     <View style={{flex: 1, height: 1, backgroundColor: 'pink'}} ></View>
               </View>
-              <View style={{ width:'100%',alignItems:'center', justifyContent:'center',marginBottom:12,}}>
+
+
+              <View 
+              style={{ 
+                width:'100%',
+                alignItems:'center', 
+                justifyContent:'center',
+                // backgroundColor:'red',
+                }}>
                 <Text style={{fontFamily:'Helvetica Neue',fontSize:12, color:'#bababa',fontWeight:'400'}}>Retail Price</Text>
                 <Text style={{fontFamily:'Helvetica Neue',paddingTop:3, fontSize:22, fontStyle:'italic', fontWeight:'900', }}>$250</Text>
               </View>
+
+
       </View>
       <ProductAvailabilityBar/>
     </View>
@@ -53,9 +74,13 @@ export default ProductCard;
 const styles = StyleSheet.create({
 
     container:{
+        // minHeight:215, 
+        // minWidth:150,
+        // maxHeight:280, 
+        // maxWidth:170,
         minHeight:215, 
-        minWidth:150,
-        maxHeight:300, 
+        minWidth:165,
+        maxHeight:280, 
         maxWidth:165,
         borderRadius:20,
         backgroundColor:'#f2f2f2',
@@ -69,19 +94,21 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.50,
         shadowRadius: 12.35,
         elevation: 19,
-        marginLeft:10,
+       
+
+        
 
     },
 
     innerContainer:{
       flexDirection:'column',
-      height:'95%', 
+      height:'93%', 
       width:'90%',
       borderRadius:15,
       backgroundColor:'white',
       padding:5,
       alignItems:'center',
-
+      // backgroundColor:'pink',
     },
 
 

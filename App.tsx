@@ -15,17 +15,19 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import MainNav from './screens/NavTabs/MainNav';
+import AuthStack from '@screens/Auth/AuthStack';
+import LoginSignUp from '@screens/Auth/LoginSignUp';
 import 'react-native-gesture-handler';
 
 
 
-
+{/* <MainNav/> */}
 
 function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-     <MainNav/>
+      <AuthStack/>
     </NavigationContainer>
   );
 }
