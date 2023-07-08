@@ -3,6 +3,10 @@ import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import ActionButton from '@components/Buttons/ActionButton';
 import React from 'react'
 
+
+////////////// import assets /////////////
+import SpiralBackground from "@assets/spiralbackgroundauth.png";
+
 const SignUpThree = () => {
 
     const [email, changeEmail] = React.useState('');
@@ -21,7 +25,7 @@ const SignUpThree = () => {
 
         
         <ImageBackground
-        source={require('/Users/ericfreeman/vaultApp/assets/spiralbackgroundauth.png')} 
+        source={SpiralBackground} 
         resizeMode="cover" 
         style={{flex:1, width:'100%',}}>
 

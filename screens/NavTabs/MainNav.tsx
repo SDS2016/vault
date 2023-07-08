@@ -152,9 +152,6 @@ function AppScreens() {
 const MainNav = () => {
   return (
    <AppScreens/>
-   
-   
-      
   )
 }
 

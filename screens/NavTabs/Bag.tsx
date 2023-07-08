@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import ActionButton from '../../components/ActionButton'
+import ActionButton from '@components/Buttons/ActionButton'
 import React from 'react'
 
 const Cart = () => {
@@ -29,8 +29,6 @@ const styles = StyleSheet.create({
     fontSize:17,
     fontWeight:'600',
     marginBottom:30,
-    
-    
   }
 
 })
