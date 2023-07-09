@@ -38,7 +38,23 @@ const AuthStack = () => {
       <Stack.Screen name="SignUpOne"  component={SignUpOne} />
       <Stack.Screen name="SignUpTwo"  component={SignUpTwo} />
       <Stack.Screen name="SignUpThree"  component={SignUpThree} />
-      <Stack.Screen name="ForgotPassword"  component={ForgotPassword} />
+
+      <Stack.Screen 
+      options={{
+        headerShown:true,
+        headerStyle:{
+            backgroundColor:'white',
+            
+        },
+        headerTitleStyle:{
+            fontSize:20,
+            
+            
+          },
+        headerTintColor:"black",
+        title:'Forgot Password',
+    }}
+      name="ForgotPassword"  component={ForgotPassword} />
     </Stack.Navigator>
     
   );

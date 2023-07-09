@@ -92,7 +92,7 @@ const [password, changePassword] = React.useState('');
                         />
                         
                         <View>
-                            <TouchableOpacity activeOpacity={.7}  >
+                            <TouchableOpacity activeOpacity={.7} onPress={()=> navigation.navigate('ForgotPassword')} >
                             <Text style={{ color:"black", marginTop:20,marginBottom:40,}}>Forgot Password</Text>
                             </TouchableOpacity>
                         </View>

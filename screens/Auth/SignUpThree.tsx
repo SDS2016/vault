@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View,TextInput,ImageBackground, } from 'react-native'
-import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
-import ActionButton from '@components/Buttons/ActionButton';
+import { StyleSheet, Text, View,TextInput,ImageBackground,SafeAreaView } from 'react-native'
+import AuthWhiteOverlay from '../../components/AuthWhiteOverlay';
+import ActionButton from '../../components/Buttons/ActionButton';
 import React from 'react'
 
 const SignUpThree = () => {
@@ -14,7 +14,6 @@ const SignUpThree = () => {
     <View
     style={{
         flex:1,
-        
         alignItems:'center',
     }}
     >
@@ -29,6 +28,7 @@ const SignUpThree = () => {
             <View 
             style={{
                 flex:.4,
+                marginTop:30,
                 width:'100%',
                 justifyContent:'center',
                 alignItems:'center',

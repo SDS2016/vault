@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Image } from 'react-native'
 import Swiper from 'react-native-deck-swiper';
 import TabUnderlay from '../../components/TabUnderlay';
 import ProductAvailabilityBar from '../../components/ProductAvailabilityBar';
@@ -11,21 +11,88 @@ import Heart from '../../components/Buttons/Heart';
 import Star from '../../components/Buttons/Star';
 import Xbutton from '../../components/Buttons/Xbutton';
 
+////////////////////
+
+import PriceLabel from '../../components/PriceLabel';
+
 const SwiperScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'green', }}>
        <Swiper
-            cards={['wjjl', 'kok', 'gdfl', 'dkd', 'MlKS', 'YUO', 'HPY']}
+            cards={['wjjl', 'kok', 'dff', 'ddlj', 'MlKS', 'YUO', 'HPY']}
             renderCard={(card) => {
                 return (
                   <View style={styles.cardContainer}>
+
+
                       <View style={styles.card}>
-                          <Text style={styles.text}>{card}</Text>
+
+                        <Text
+                          style={{  
+                            fontFamily:'Helvetica Neue',
+                            fontSize:15, 
+                            fontWeight:"500",
+                            alignSelf:'center', 
+                            }}
+                        >Air Max 97 “ Obsidian Black ”</Text>
+{/* /////////////////////////// everything above product details /////////////////// */}
+                        <View
+                    style={{  
+                      flex:.9,
+                      // backgroundColor:'green',
+                      }}
+                    
+                    >
+
+                        <View
+                            style={{
+                              flex:.6,
+                              width:'100%',
+                              // backgroundColor:'yellow',
+                            }}
+                          >
+                            <Image
+                              style={{
+                                height:'100%',
+                                width:'100%',
+                                resizeMode:'contain',
+                              }}
+                              source={{uri:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/wohf5k8sjdmgogckoczk/air-jordan-1-mid-shoes-D8g1Qq.png'}}
+                            />
+                        </View>
+
+
+                            <View
+                              style={{
+                                width:'100%',
+                                paddingTop:20,
+                                flexDirection:'row',
+                                justifyContent:'flex-end',
+                              }}
+                            >
+                              <PriceLabel
+                                price={'$245'}
+                              />
+                            </View>
+
+                    </View>
+                          
                       </View>
+
+                    
+{/* ////////////////////////////// all the components after product detail below ////////////////////////////// */}
                       <View style={{ flexDirection:'column', marginBottom:'30%',padding:20, position:'absolute', bottom:10,}}>
                         <View style={{ alignItems:'flex-start', height:40, justifyContent: 'center',}}>
-                        <Text style={{  fontFamily:'Helvetica Neue',fontSize:24, fontWeight:"500", }}>Profile Info </Text>
+                        <Text 
+                        style={{  
+                          fontFamily:'Helvetica Neue',
+                          fontSize:24, 
+                          fontWeight:"500", 
+                          }}>Profile Details </Text>
                     </View>
+
+
+
                         <View style={{paddingTop:5, flexDirection:'column',  }}>
                           <Text numberOfLines={4} ellipsizeMode='clip' style={{  fontFamily:'Helvetica Neue',fontSize:15, fontWeight:"400", }}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
@@ -33,6 +100,10 @@ const SwiperScreen = () => {
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                            </Text>
                         </View>
+
+
+
+
                         
                       </View>
                       <SmallerTabUnderlay/>
@@ -47,7 +118,7 @@ const SwiperScreen = () => {
                                 width:'100%',
                                 justifyContent:'space-evenly',
                                 alignItems:'center',
-                                // backgroundColor:'red',
+                                
                               }}
                             >
                               <BackButton/>
@@ -105,11 +176,7 @@ const styles = StyleSheet.create({
   },
 
 
-  text: {
-    textAlign: "center",
-    fontSize: 50,
-    backgroundColor: "orange",
-  }
+  
 
 
 })

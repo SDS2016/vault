@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import ActionButton from '../../components/ActionButton'
+import ActionButton from '../../components/Buttons/ActionButton'
 import React from 'react'
 
 const Cart = () => {

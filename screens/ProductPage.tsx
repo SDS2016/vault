@@ -33,10 +33,8 @@ const ProductPage = () => {
                         style={{
                             height:70,
                             width:70,
-                            
-                            
                         }}
-                        source={require('/Users/ericfreeman/vaultApp/assests/heart-button.png')}
+                        source={require('/Users/ericfreeman/vaultApp/assets/heart-button.png')}
                         />
                 </View>
                 

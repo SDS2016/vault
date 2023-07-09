@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Text,StyleSheet, FlatList, View,ActivityIndicator} from 'react-native'
-import TabUnderlay from '@components/TabUnderlay';
-import HomeLogoHeader from '@components/HomeLogoHeader';
-import ProductCard from '@components/ProductCard';
+import TabUnderlay from '../../components/TabUnderlay';
+import HomeLogoHeader from '../../components/HomeLogoHeader';
+import ProductCard from '../../components/ProductCard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // import API functions
@@ -27,12 +27,12 @@ const Home = () => {
       <View style={{ backgroundColor: '#cacaca', width: '100%',marginTop:50, }}>
         <SafeAreaView>
           
-          <View 
+          {/* <View 
           style={{ 
             height:400,
             backgroundColor:'#79fbff', width: '100%',marginTop:50, }}>
             <Text> hello friend</Text>
-          </View>
+          </View> */}
           {loadingProducts?
             <ActivityIndicator size="large" />
             :

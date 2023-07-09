@@ -19,6 +19,8 @@ import SearchTabIcon from '@assets/search.png';
 import ProfileTabIcon from '@assets/Profile.png';
 import SwiperTabIcon from '@assets/SwiperTab.png';
 import BagTabIcon from '@assets/BagTab.png';
+import ImageCarouselProductPage from '../ImageCarouselProductPage';
+import ProductPage from '../ProductPage';
 
 
 
@@ -129,19 +131,20 @@ function AppScreens() {
       >
         <Stack.Screen name="NavTabs" component={NavTabs}/>
         <Stack.Screen 
-        name="Profile" 
-        component={Profile} 
+        name="Product Page" 
+        component={ProductPage} 
         options={{
-         
-          presentation:"modal",
-           
+
         }}
-        
         />
         <Stack.Screen 
-        name="Subscriptions"  
-        component={Bag}
+        name="Product Page Image Carousel"  
+        component={ImageCarouselProductPage}
+        options={{
+          headerShown:true,
+        }}
         />
+
 
       </Stack.Navigator>
     );
@@ -152,9 +155,6 @@ function AppScreens() {
 const MainNav = () => {
   return (
    <AppScreens/>
-   
-   
-      
   )
 }
 
