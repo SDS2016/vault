@@ -4,6 +4,10 @@ import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 
+
+////////////// import assets /////////////
+import SpiralBackground from "@assets/spiralbackgroundauth.png";
+
 export default function SignUpOne() {
 
     const navigation = useNavigation();
@@ -21,7 +25,7 @@ export default function SignUpOne() {
 
         
         <ImageBackground
-        source={require('/Users/ericfreeman/vaultApp/assets/spiralbackgroundauth.png')} 
+        source={SpiralBackground} 
         resizeMode="cover" 
         style={{flex:1, width:'100%',}}>
 

@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View, } from 'react-native'
 import ProductAvailabilityBar from './ProductAvailabilityBar'
+import FormatCurrency from '@utils/utils';
 import React from 'react'
 
 const ProductCard =(props)=> {
@@ -59,7 +60,7 @@ const ProductCard =(props)=> {
                 // backgroundColor:'red',
                 }}>
                 <Text style={{fontFamily:'Helvetica Neue',fontSize:12, color:'#bababa',fontWeight:'400'}}>Retail Price</Text>
-                <Text style={{fontFamily:'Helvetica Neue',paddingTop:3, fontSize:22, fontStyle:'italic', fontWeight:'900', }}>$250</Text>
+                <Text style={{fontFamily:'Helvetica Neue',paddingTop:3, fontSize:22, fontStyle:'italic', fontWeight:'900', }}>{FormatCurrency(product.default_price.unit_amount/100,product.default_price.currency)}</Text>
               </View>
 
 

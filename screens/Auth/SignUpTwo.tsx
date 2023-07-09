@@ -3,7 +3,11 @@ import { useNavigation } from '@react-navigation/native';
 import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import ActionButton from '@components/Buttons/ActionButton';
 import InputTemp from '@components/InputTemp';
-import React from 'react'
+import React from 'react';
+
+
+////////////// import assets /////////////
+import SpiralBackground from "@assets/spiralbackgroundauth.png";
 
 const SignUpTwo = () => {
 
@@ -28,7 +32,7 @@ const SignUpTwo = () => {
 
         
         <ImageBackground
-        source={require('/Users/ericfreeman/vaultApp/assets/spiralbackgroundauth.png')} 
+        source={SpiralBackground} 
         resizeMode="cover" 
         style={{flex:1, width:'100%',}}>
 

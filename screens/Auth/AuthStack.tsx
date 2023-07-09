@@ -16,10 +16,6 @@ const  Stack = createStackNavigator();
 
 const AuthStack = () => {
 
-   
-
-
-
   return (
  
     <Stack.Navigator

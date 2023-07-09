@@ -5,7 +5,9 @@ import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import ActionButton from '@components/Buttons/ActionButton';
 import React from 'react'
 
-// const image = {uri:''};
+////////////// import assets /////////////
+import DarkSpiral from "@assets/dark-spiral.png";
+import VaultBlkLogo from "@assets/vault-blk-logo.png";
 
 
 
@@ -14,15 +16,15 @@ const LoginSignUp = () => {
 
     const navigation = useNavigation();
 
-const [email, changeEmail] = React.useState('');
-const [password, changePassword] = React.useState('');
+    const [email, changeEmail] = React.useState('');
+    const [password, changePassword] = React.useState('');
 
 
   return (
     <View style={{flex:1, justifyContent:'center', alignItems:'center', }}>
         
         <ImageBackground
-        source={require('/Users/ericfreeman/vaultApp/assets/dark-spiral.png')} 
+        source={DarkSpiral} 
         resizeMode="cover" 
         style={{flex:1, width:'100%',}}>
 
@@ -56,7 +58,7 @@ const [password, changePassword] = React.useState('');
                                 height:50,
                                 width:100,
                             }}
-                            source={require('/Users/ericfreeman/vaultApp/assets/vault-blk-logo.png')}
+                            source={VaultBlkLogo}
                             />
                     </View>
 
