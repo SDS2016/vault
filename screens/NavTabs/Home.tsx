@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react'
-import { Text,StyleSheet, FlatList, View,ActivityIndicator} from 'react-native'
-import TabUnderlay from '../../components/TabUnderlay';
-import HomeLogoHeader from '../../components/HomeLogoHeader';
-import ProductCard from '../../components/ProductCard';
-=======
 import React, { useState, useEffect } from 'react';
 import { Text,StyleSheet, FlatList, View,ActivityIndicator, ScrollView, Image} from 'react-native'
 import TabUnderlay from '@components/TabUnderlay';
 import HomeLogoHeader from '@components/HomeLogoHeader';
 import ProductCard from '@components/ProductCard';
->>>>>>> 374425da7374c030c9657d81100bd387457ca064
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
 
 ////////////// import API functions /////////////
 import { getProducts } from '@api/StripeIntegration';
@@ -35,20 +27,9 @@ const Home = () => {
       {/* /////////// the view directly below is for the spacing between the flatlist items /////////////// */}
       <View style={{ backgroundColor: '#cacaca', width: '100%',marginTop:50, }}>
         <SafeAreaView>
-          {/* <ScrollView>
-            
-          </ScrollView> */}
           
-<<<<<<< HEAD
-          {/* <View 
-          style={{ 
-            height:400,
-            backgroundColor:'#79fbff', width: '100%',marginTop:50, }}>
-            <Text> hello friend</Text>
-          </View> */}
-=======
 
->>>>>>> 374425da7374c030c9657d81100bd387457ca064
+          
           {loadingProducts?
             <ActivityIndicator size="large" />
             :

@@ -4,7 +4,7 @@ import ProductCard from '@components/ProductCard';
 import TabUnderlay from '../../components/TabUnderlay';
 
 ////////////// import vault logo /////////////
-import SearchIcon from "@assets/search.png";
+import SearchIcon from '@assets/search.png';
 
 ////////////// import API functions /////////////
 import { getProducts } from '@api/StripeIntegration';
@@ -51,6 +51,8 @@ const Search = () => {
         </View>
       </View>
       <View>
+
+       
         {loadingProducts?
           <ActivityIndicator size="large" />
           :
@@ -62,6 +64,8 @@ const Search = () => {
             ////////// columnWrapperStyle styles the flatlist items ///////////////
             columnWrapperStyle={{justifyContent:'space-evenly'}}
             contentContainerStyle={{ 
+              paddingTop:20,
+              height:'100%',
               width:'100%', 
               justifyContent:'space-between',
               // backgroundColor:'pink',

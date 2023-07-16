@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const BagTotal = () => {
+const BagCheckout = () => {
   return (
     <View>
-      <Text>BagTotal</Text>
+      <Text>BagCheckout</Text>
     </View>
   )
 }
 
-export default BagTotal
+export default BagCheckout
 
 const styles = StyleSheet.create({})
