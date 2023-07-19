@@ -27,9 +27,8 @@ const Home = () => {
       {/* /////////// the view directly below is for the spacing between the flatlist items /////////////// */}
       <View style={{ backgroundColor: '#cacaca', width: '100%',marginTop:50, }}>
         <SafeAreaView>
-          {/* <ScrollView>
-            
-          </ScrollView> */}
+          
+
           
           {loadingProducts?
             <ActivityIndicator size="large" />

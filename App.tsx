@@ -14,9 +14,13 @@ import {
   View,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import MainNav from '@screens/NavTabs/MainNav';
-import AuthStack from '@screens/Auth/AuthStack';
-import LoginSignUp from '@screens/Auth/LoginSignUp';
+import AuthStack from './screens/Auth/AuthStack';
+import ProductPage from './screens/ProductPage';
+import ImageCarouselProductPage from './screens/ImageCarouselProductPage';
+import SubscriptionPrompt from './screens/SubscriptionPrompt';
+import MainNav from './screens/NavTabs/MainNav';
+import BlankScreen from '@components/BlankScreen';
+import BagTotal from './screens/BagTotal';
 import 'react-native-gesture-handler';
 
 
@@ -26,8 +30,7 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      {/* <AuthStack/> */}
-      <MainNav/>
+      <BlankScreen/>
     </NavigationContainer>
   );
 }
