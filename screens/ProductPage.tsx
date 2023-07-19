@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, SafeAreaView,Image } from 'react-native'
+import React from 'react';
 
-import React from 'react'
+////////////// import vault logo /////////////
+import HeartButton from "@assets/heart-button.png";
 
 const ProductPage = () => {
   return (
@@ -34,7 +36,7 @@ const ProductPage = () => {
                             height:70,
                             width:70,
                         }}
-                        source={require('/Users/ericfreeman/vaultApp/assets/heart-button.png')}
+                        source={HeartButton}
                         />
                 </View>
                 
