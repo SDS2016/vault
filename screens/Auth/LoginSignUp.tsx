@@ -83,6 +83,7 @@ const LoginSignUp = () => {
                              placeholder="Password"
                              onChangeText={password=>changePassword(password)}
                              value={password}
+                             secureTextEntry={true}
                              
                         >
                         </TextInput>

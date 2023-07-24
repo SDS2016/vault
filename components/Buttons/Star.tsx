@@ -9,8 +9,8 @@ const Star = () => {
     <View
     style={{
         
-        height:75,
-        width:75,
+        height:63,
+        width:63,
         
         borderRadius:50,
         justifyContent:'center',
@@ -29,8 +29,8 @@ const Star = () => {
     >
          <Image
             style={{
-                height:55,
-                width:55,
+                height:45,
+                width:45,
                 resizeMode:'contain',
                 
                 

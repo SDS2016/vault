@@ -10,8 +10,8 @@ const BackButton = () => {
     <View
     style={{
         
-        height:65,
-        width:65,
+        height:55,
+        width:55,
         // paddingTop:8,
         borderRadius:50,
         justifyContent:'center',
@@ -30,8 +30,8 @@ const BackButton = () => {
     >
          <Image
             style={{
-                height:48,
-                width:48,
+                height:40,
+                width:40,
                 resizeMode:'contain',
                 
                 

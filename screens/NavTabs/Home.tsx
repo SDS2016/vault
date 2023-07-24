@@ -29,7 +29,7 @@ const Home = () => {
         <SafeAreaView>
           
 
-          
+
           {loadingProducts?
             <ActivityIndicator size="large" />
             :
@@ -77,7 +77,7 @@ export default Home
 const styles = StyleSheet.create({
   productHighlight: {
     height: 300,
-    padding: 5,
+    // padding: 5,
     width: '100%',
     marginTop:50,
     marginBottom:10,

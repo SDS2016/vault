@@ -175,6 +175,7 @@ const SignUpTwo = () => {
                 placeholder="Gender"
                 onChangeText={gender=>changeGender(gender)}
                 value={gender}
+                onPress={}
             
             />
         
