@@ -10,7 +10,8 @@ const PriceLabel = ({price}) => {
     alignItems:'center',
     height:60,
     width:150,
-    // backgroundColor:'yellow',
+    // flexGrow:0,
+    backgroundColor:'yellow',
 
     }}
     >

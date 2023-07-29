@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     checkOut:{
         flex:.77,
         width:'100%',
+        // marginTop:'25%',
         // backgroundColor:'yellow',
         padding:'2%',
         // justifyContent:'center',

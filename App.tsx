@@ -23,6 +23,7 @@ import MainNav from '@screens/NavTabs/MainNav';
 import BlankScreen from '@components/BlankScreen';
 import BagTotal from './screens/BagTotal';
 import 'react-native-gesture-handler';
+import BagProductCheckout from '@components/BagProductCheckout';
 
 
 
