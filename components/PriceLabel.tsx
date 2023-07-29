@@ -8,8 +8,10 @@ const PriceLabel = ({price}) => {
     style={{
     flexDirection:'column',
     alignItems:'center',
-    height:50,
+    height:60,
     width:150,
+    // flexGrow:0,
+    backgroundColor:'yellow',
 
     }}
     >
@@ -17,7 +19,7 @@ const PriceLabel = ({price}) => {
         style={{
             fontFamily:'Helvetica Neue',
             fontSize:16, 
-            fontWeight:"400",
+            fontWeight:"500",
         }}>Retail Price</Text>
 
 
@@ -27,6 +29,7 @@ const PriceLabel = ({price}) => {
             fontStyle:'italic',
             fontSize:36, 
             fontWeight:"900",
+            // backgroundColor:'blue',
         }}
       >{price}</Text>
     </View>

@@ -10,9 +10,9 @@ const Heart = () => {
     <View
     style={{
         
-        height:65,
-        width:65,
-        paddingTop:8,
+        height:55,
+        width:55,
+        paddingTop:5,
         borderRadius:50,
         justifyContent:'center',
         alignItems:'center',
@@ -30,8 +30,8 @@ const Heart = () => {
     >
          <Image
             style={{
-                height:50,
-                width:50,
+                height:40,
+                width:40,
                 
                 
             }}

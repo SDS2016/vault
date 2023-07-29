@@ -61,14 +61,70 @@ const BagProductCheckout = () => {
                 <View
                 style={styles.retailPrice}
                 >
+                 <Text 
+        style={{
+            fontFamily:'Helvetica Neue',
+            fontSize:12, 
+            fontWeight:"500",
+            marginLeft:7,
+        }}>Retail Price</Text>
 
+
+      <Text
+        style={{
+            fontFamily:'Helvetica Neue',
+            fontStyle:'italic',
+            fontSize:17, 
+            fontWeight:"500",
+            marginRight:7,
+            // backgroundColor:'blue',
+        }}
+      >$456</Text>
                 </View>
 
-               <View
-               style={styles.size}
-               >
 
-               </View>
+
+
+
+                        <View
+                        style={styles.size}
+                        >
+                            <View
+                            style={{
+                                width:'50%',
+                                justifyContent:'center',
+                                alignItems:'center',
+                                // backgroundColor:'green',
+
+                            }}
+                            >
+                                <Text style={styles.text}>A</Text>
+                            </View>
+                            
+                            <View
+                            style={{
+                                height: '100%',
+                                width: 1,
+                                backgroundColor: '#ffffff',
+
+                            }}>
+
+                            </View>
+
+                            <View
+                              style={{
+                                width:'50%',
+                                justifyContent:'center',
+                                alignItems:'center',
+                                // backgroundColor:'orange',
+                               
+                            }}
+                            >
+                                <Text style={styles.text}>10</Text>
+                            </View>
+
+
+                        </View>
 
             </View>
 
@@ -104,6 +160,9 @@ height:27,
 width:'80%',
 borderRadius:30,
 marginTop:10,
+flexDirection:'row',
+alignItems:'center',
+justifyContent:'space-between',
 backgroundColor:'#c9c9c9',
 },
 
@@ -112,7 +171,17 @@ size:{
     width:'80%',
     borderRadius:30,
     marginTop:10,
+    flexDirection:'row',
+    alignItems:'center',
+    // justifyContent:'space-between',
     backgroundColor:'#000000',
+    },
+
+
+    text:{
+        color:'white',
+        fontSize:18,
+        fontWeight:'600',
     },
 
 })

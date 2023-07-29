@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,SafeAreaView, ScrollView } from 'react-native'
+import { StyleSheet, Text, View,SafeAreaView, ScrollView, Image } from 'react-native'
 import TabUnderlay from '../../components/TabUnderlay'
 import React from 'react'
 
@@ -8,9 +8,27 @@ const Profile = () => {
     <View style={{ flex: 1, }}>
       <SafeAreaView>
         <ScrollView style={{ paddingRight:20, paddingLeft:20, }}>
-            <View style={{ minHeight:250, maxHeight:350, width:'100%',justifyContent: 'center', alignItems: 'center', }}>
+            
+          
+          <View style={{ minHeight:250, maxHeight:350, width:'100%',justifyContent: 'center', alignItems: 'center', }}>
+            
+
+            {/* ///////////////// Profile Image ////////////////////////////////// */}
             <View style={{ height:120, width:120, borderRadius:80, backgroundColor:'orange',}}>
-          </View>
+              <Image
+              style={{
+                height:'100%',
+                width:'100%',
+                borderRadius:100,
+                resizeMode:'cover',
+              }}
+              source={{uri:'https://st2.depositphotos.com/1715570/5709/i/450/depositphotos_57092503-stock-photo-happy-african-american-man-in.jpg'}}
+              />
+              
+            </View>
+            {/* ////////////////////////////////////////////////////////////////// */}
+
+
             <Text style={{ fontFamily:'Helvetica Neue', paddingTop:12, fontSize:18, fontWeight:"700"}}> Jordan Perterson</Text>
           </View>
 

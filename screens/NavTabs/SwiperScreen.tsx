@@ -14,12 +14,13 @@ import Xbutton from '../../components/Buttons/Xbutton';
 ////////////////////
 
 import PriceLabel from '../../components/PriceLabel';
+import GradingComp from '@components/GradingComp';
 
 const SwiperScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'green', }}>
        <Swiper
-            cards={['wjjl', 'kok', 'dff', 'dlj', 'MlKS', 'YUO', 'HPY']}
+            cards={['wjjl', 'kok', 'dfj', 'dhjj', 'hKSj', 'YUO', 'HPY']}
             renderCard={(card) => {
                 return (
                   <View style={styles.cardContainer}>
@@ -62,14 +63,36 @@ const SwiperScreen = () => {
                         </View>
 
 
+                                <View
+                                style={{
+                                  width:'85%',
+                                  flexDirection:'row',
+                                  justifyContent:'flex-end',
+                                  // backgroundColor:'pink',
+                                }}
+                                >
+                                  <Text
+                                  style={{  
+                                    fontFamily:'Helvetica Neue',
+                                    fontSize:15, 
+                                    marginBottom:10,
+                                    fontWeight:"500", 
+                                    }}
+                                  >Nike</Text>
+                                </View>
+
+
                             <View
                               style={{
                                 width:'100%',
-                                paddingTop:20,
+                                // paddingTop:20,
                                 flexDirection:'row',
-                                justifyContent:'flex-end',
+                                justifyContent:'center',
+                                // backgroundColor:'red',
                               }}
                             >
+                                
+                              <GradingComp/>
                               <PriceLabel
                                 price={'$245'}
                               />
