@@ -25,6 +25,8 @@ import BagTotal from './screens/BagTotal';
 import 'react-native-gesture-handler';
 import BagProductCheckout from '@components/BagProductCheckout';
 import Toast from 'react-native-toast-message';
+import Config from "react-native-config";
+import { StripeProvider } from '@stripe/stripe-react-native';
 
 
 
@@ -32,12 +34,14 @@ import Toast from 'react-native-toast-message';
 function App(): JSX.Element {
 
   return (
-    // <BottomSheetModalProvider>
+    <StripeProvider
+      publishableKey={Config.STRIPE_API_KEY}
+    >
       <NavigationContainer>
         <MainNav/>
         <Toast/>
       </NavigationContainer>
-    // </BottomSheetModalProvider>
+    </StripeProvider>
   );
 }
 

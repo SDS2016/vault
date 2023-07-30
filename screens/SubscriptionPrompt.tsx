@@ -107,7 +107,7 @@ const SubscriptionPrompt = () => {
 
             
         <ActionButton
-            title={'Sign Up'} 
+            title={'Subscribe'} 
             color={{color:'black'}}
             onPress={()=> navigation.navigate('SignUpThree')} 
             backgroundColor={{backgroundColor:'white'}}

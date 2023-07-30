@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
 import BagProductCheckout from '@components/BagProductCheckout';
 
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
 
-const Cart = () => {
+const Cart = ({navigation}) => {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -57,7 +57,7 @@ const Cart = () => {
             <>
               <Text style={styles.text}>Your bag is empty</Text>
               <Text style={styles.text2}>Choose 3 shoes to be added in your bag</Text>
-              <ActionButton title={'Continue Shopping'}/>
+              <ActionButton title={'Continue Shopping'} onPress={()=>navigation.navigate('Home')}/>
             </>
           )
           :
@@ -65,6 +65,13 @@ const Cart = () => {
             <BagProductCheckout key={product.id} product={product} removeProduct={removeProduct}/>
           ))
         }
+
+        {
+          products.length >= 3? (
+            <ActionButton title={'Checkout'} onPress={()=>navigation.navigate('Blank Screen')}/>
+          ):null
+        }
+
       </View>
     </View>
   )

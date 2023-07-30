@@ -491,6 +491,7 @@
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				INFOPLIST_FILE = vaultApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,6 +523,7 @@
 				DEVELOPMENT_TEAM = Q823D84X8D;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "i386 ";
 				INFOPLIST_FILE = vaultApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,3 +8,12 @@ export const getProducts = async (searchTeram: string) => {
     const json = await response.json();
     return json;
 }
+
+export const getPaymentIntent = async () => {
+    const response = await fetch('https://prncsikwvviobywpyxjp.supabase.co/functions/v1/vault-get-payment-intent',{
+        method: 'POST',
+        body:JSON.stringify({}),
+    })
+    const json = await response.json();
+    return json;
+}

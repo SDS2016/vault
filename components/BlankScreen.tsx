@@ -3,16 +3,91 @@ import BagProductCheckout from './BagProductCheckout'
 import GradingComp from './GradingComp'
 import TabUnderlay from './TabUnderlay'
 import LinearGradient from 'react-native-linear-gradient'
-import TintColorButtonTemplate from './Buttons/TintColorButtonTemplate'
-import React from 'react'
+import FormatCurrency from '@utils/utils';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
+import ActionButton from '@components/Buttons/ActionButton';
+import React, {useEffect, useState} from 'react';
+////////////// import API functions /////////////
+import { getPaymentIntent } from '@api/StripeIntegration';
+// stripe import
+import { useStripe } from '@stripe/stripe-react-native';
+
+const BlankScreen = ({navigation}) => {
+    const { initPaymentSheet, presentPaymentSheet, confirmPayment } = useStripe();
+    const [products, setProducts] = useState([]);
+
+    const getProducts = async () => {
+        try {
+        const storedProducts = await AsyncStorage.getItem('products');
+        if (storedProducts) {
+            const productList = JSON.parse(storedProducts);
+            setProducts(productList);
+        }
+        } catch (error) {
+        console.log(error);
+        }
+    }
+
+    const removeProduct = async (productToRemove) => {
+        try {
+            const storedProducts = await AsyncStorage.getItem('products');
+            if (storedProducts) {
+                const productList = JSON.parse(storedProducts);
+                const newProductList = productList.filter((product) => product.id !== productToRemove.id);
+                await AsyncStorage.setItem('products', JSON.stringify(newProductList));
+                Toast.show({
+                    type: 'success',
+                    text1: 'Cart updated',
+                    text2: 'Product removed from cart successfully',
+                    position: 'bottom',
+                }); 
+                setProducts(newProductList);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const initializePaymentSheet = async () => {
+        const { client_secret } = await getPaymentIntent();
+        console.log(client_secret);
+    
+        const { error } = await initPaymentSheet({
+          merchantDisplayName: "Vault",
+          paymentIntentClientSecret: client_secret,
+          // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+          //methods that complete payment after a delay, like SEPA Debit and Sofort.
+          allowsDelayedPaymentMethods: true,
+          defaultBillingDetails: {
+            name: 'Jane Doe',
+          }
+        });
+        if (!error) {
+        //   setLoading(true);
+        }
+      };
 
 
-
-const BlankScreen = () => {
-  return (
+      const openPaymentSheet = async () => {
+        const { error } = await presentPaymentSheet();
+    
+        if (error) {
+            console.log(`Error code: ${error.code}`, error.message);
+        } else {
+            console.log('Success', 'Your order is confirmed!');
+        }
+      };
 
 
     
+    useEffect(() => {
+        getProducts();
+        initializePaymentSheet();
+        // console.log(products);
+    }, [])
+
+  return (
     <View
     style={{
         flex:1,
@@ -42,14 +117,14 @@ const BlankScreen = () => {
      <View style={styles.checkOut}>
        
         <ScrollView showsVerticalScrollIndicator={false}>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
-             <BagProductCheckout/>
+            {
+            products.length > 0 ?
+                products.map((product) => (
+                    <BagProductCheckout key={product.id} product={product} removeProduct={removeProduct}/>
+                ))
+            :
+                null
+            }
         </ScrollView>
      </View>
 
@@ -61,8 +136,8 @@ const BlankScreen = () => {
 
             
            
-                <View style={styles.orderTotal}>
- <View
+        <View style={styles.orderTotal}>
+        <View
             style={{
                 // height:'35%',
                 width:'85%',
@@ -90,18 +165,27 @@ const BlankScreen = () => {
 
                         <View style={styles.textInGrey}>
                             <Text style={styles.text}>Membership</Text>
-                            <Text style={styles.text}>$40</Text>
+                            <Text style={styles.text}>$40.00</Text>
                         </View>
 
                         <View style={styles.textInGrey}>
                             <Text style={styles.text}>Estimated Retail Price</Text>
-                            <Text style={styles.text}>$450</Text>
+                            <Text style={styles.text}>
+                                {
+                                    products.length > 0 ?(
+                                        // sum total of all products
+                                        FormatCurrency(products.reduce((a, b) => a + (b.default_price.unit_amount / 100), 0), products[0].default_price.currency)                                        
+                                    ):null
+                                }
+                            </Text>
                         </View>
 
                         <View style={styles.textInGrey}>
                             <Text style={styles.textTotal}>Total</Text>
-                            <Text style={styles.textTotal}>$40</Text>
+                            <Text style={styles.textTotal}>$40.00</Text>
                         </View>
+                        <ActionButton title={'Subscribe'} onPress={openPaymentSheet}/>
+
 
                 </View>
              </View>
@@ -128,11 +212,12 @@ const styles = StyleSheet.create({
     },
 
     orderTotal:{
-        height:'28%',
+        height:'35%',
         width:'100%',
         bottom:0,
         paddingTop:20,
         position:'absolute',
+        paddingBottom:20,
         // justifyContent:'center',
         backgroundColor:'white',
         alignItems:'center',

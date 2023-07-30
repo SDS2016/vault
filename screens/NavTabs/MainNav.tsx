@@ -9,6 +9,11 @@ import Profile from './Profile';
 import Search from './Search';
 import SwiperScreen from './SwiperScreen';
 import Bag from './Bag';
+import BlankScreen from '@components/BlankScreen';
+import SubscriptionPrompt from '@screens/SubscriptionPrompt';
+import PaymentScreen from '@screens/PaymentScreen';
+
+
 
 ////////////// components import /////////////
 import SubscriptionDefault from '../../components/SubscriptionDefault';
@@ -138,6 +143,31 @@ function AppScreens() {
           headerBackTitleVisible:false,
         }}
         />
+        <Stack.Screen
+        name="Blank Screen"
+        component={BlankScreen}
+        options={{
+          headerShown:true,
+          headerBackTitleVisible:false,
+        }}/>
+
+        <Stack.Screen
+        name="Subscription Prompt"
+        component={SubscriptionPrompt}
+        options={{
+          headerShown:true,
+          headerBackTitleVisible:false,
+        }}
+        />
+{/* 
+        <Stack.Screen
+        name="Payment Screen"
+        component={PaymentScreen}
+        options={{
+          headerShown:true,
+          headerBackTitleVisible:false,
+        }}/> */}
+
         <Stack.Screen 
         name="Product Page Image Carousel"  
         component={ImageCarouselProductPage}

@@ -5,10 +5,10 @@ const ActionButton = ({ title, onPress, backgroundColor, color}) => {
 
   return (
     <TouchableOpacity activeOpacity={.7} onPress={onPress}>
-    <View style={[styles.actionButton, backgroundColor]} >
-      <Text style= {[styles.title, color]}>{title}</Text>
-    </View>
-</TouchableOpacity>
+      <View style={[styles.actionButton, backgroundColor]} >
+        <Text style= {[styles.title, color]}>{title}</Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 
