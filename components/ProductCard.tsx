@@ -1,12 +1,19 @@
-import { Image, StyleSheet, Text, View, } from 'react-native'
+import { Image, StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import ProductAvailabilityBar from './ProductAvailabilityBar'
 import FormatCurrency from '@utils/utils';
 import React from 'react'
 
 const ProductCard =(props)=> {
   let product = props.productInfo.item;
+  const navigation = useNavigation();
+
+  const ViewProduct = () => {
+    navigation.navigate("Product Page", {product:product});
+  }
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={ViewProduct}>
       <View style={styles.innerContainer}> 
               
               <View style={{height:"75%",  alignItems:'center', }}>
@@ -66,7 +73,7 @@ const ProductCard =(props)=> {
 
       </View>
       <ProductAvailabilityBar/>
-    </View>
+    </TouchableOpacity>
   )
 }
 

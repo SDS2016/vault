@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
 
+////////////// assets import /////////////
+import CheckIcon from '@assets/check.png';
+
 const ChecklistTexts = ({text}) => {
   return (
     <View
@@ -27,7 +30,7 @@ const ChecklistTexts = ({text}) => {
             width:40,
             resizeMode:'contain',
         }}
-        source={require('/Users/ericfreeman/vaultApp/assets/check.png')}
+        source={CheckIcon}
         />
         
     </View>

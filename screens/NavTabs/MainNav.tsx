@@ -134,7 +134,8 @@ function AppScreens() {
         name="Product Page" 
         component={ProductPage} 
         options={{
-
+          headerShown:true,
+          headerBackTitleVisible:false,
         }}
         />
         <Stack.Screen 

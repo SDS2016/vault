@@ -24,6 +24,7 @@ import BlankScreen from '@components/BlankScreen';
 import BagTotal from './screens/BagTotal';
 import 'react-native-gesture-handler';
 import BagProductCheckout from '@components/BagProductCheckout';
+import Toast from 'react-native-toast-message';
 
 
 
@@ -34,6 +35,7 @@ function App(): JSX.Element {
     // <BottomSheetModalProvider>
       <NavigationContainer>
         <MainNav/>
+        <Toast/>
       </NavigationContainer>
     // </BottomSheetModalProvider>
   );
