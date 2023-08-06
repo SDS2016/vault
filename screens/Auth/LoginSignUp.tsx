@@ -1,13 +1,19 @@
-import { StyleSheet,View,Image,Text, TextInput, ImageBackground, TouchableOpacity } from 'react-native'
+import { StyleSheet,View,Image,Text, TextInput, ImageBackground, TouchableOpacity,TouchableWithoutFeedback, 
+    Keyboard, KeyboardAvoidingView, Platform } from 'react-native'
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import ActionButton from '@components/Buttons/ActionButton';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import React from 'react'
 
 ////////////// import assets /////////////
 import DarkSpiral from "@assets/dark-spiral.png";
 import VaultBlkLogo from "@assets/vault-blk-logo.png";
+
+
+
 
 
 
@@ -20,7 +26,18 @@ const LoginSignUp = () => {
     const [password, changePassword] = React.useState('');
 
 
+
+
   return (
+
+//  <KeyboardAvoidingView
+//   behavior={Platform.OS === "ios" ? "padding" : "height"}
+//   style={styles.container}
+//   >
+// <TouchableWithoutFeedback onPress={() =>{
+// Keyboard.dismiss(); }}>   
+
+
     <View style={{flex:1, justifyContent:'center', alignItems:'center', }}>
         
         <ImageBackground
@@ -64,6 +81,12 @@ const LoginSignUp = () => {
 
 
                 {/* ///////////////////////  form text inputs   ////////////////////*/}
+
+
+
+
+
+
                     <View 
                         style={{
                             width:'100%',
@@ -108,13 +131,17 @@ const LoginSignUp = () => {
 
                     </View>
 
-
+                
 
 
             </View>
         </ImageBackground>
         
   </View>
+
+
+    //  </TouchableWithoutFeedback>
+    //  </KeyboardAvoidingView>
   )
 }
 

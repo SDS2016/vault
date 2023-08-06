@@ -1,28 +1,86 @@
-import { StyleSheet, Text,TextInput, View,SafeAreaView, ImageBackground } from 'react-native'
+import { StyleSheet, Text,TextInput, View,SafeAreaView, ImageBackground, TouchableOpacity,TouchableWithoutFeedback, 
+    Keyboard, KeyboardAvoidingView, Platform, Alert } from 'react-native'
 import ActionButton from '@components/Buttons/ActionButton';
 import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import { useNavigation } from '@react-navigation/native';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import React from 'react'
 
 
 ////////////// import assets /////////////
 import SpiralBackground from "@assets/spiralbackgroundauth.png";
 
+
+////////////// firebase imports cloud firestore /////////////////
+import firestore from '@react-native-firebase/firestore';
+
+
+
+
+
+const FullNameSchema = Yup.object().shape({
+  
+    fullName: Yup.string()
+      .min(3, 'please enter name')
+      .max(20, '')
+      .required('Required')
+      .matches(/^[a-z ,.'-]+$/i,'please enter a valid name'),
+  
+  });
+
+
+
 export default function SignUpOne() {
 
     const navigation = useNavigation();
 
-    const [lastName, changeLastName] = React.useState('');
+    // const [fullName, changeFullName] = React.useState('');
+
+
+    const handleSubmit = async (values)=> {
+
+    firestore().collection('users').add({
+        fullName: values.fullName,
+    })
+    .catch((error) => {
+            alert(error);
+        });navigation.navigate('SignUpTwo');
+        
+    
+    }
+
+
+
+
 
   return (
+
+<KeyboardAvoidingView
+  behavior={Platform.OS === "ios" ? "padding" : "height"}
+  style={styles.container}
+  >
+<TouchableWithoutFeedback onPress={() =>{
+Keyboard.dismiss(); }}>
+
+
+
     <View
     style={{
         flex:1,
-        
         alignItems:'center',
     }}
     >
+<Formik
+      initialValues={{ 
+       fullName: '',
 
+      }}
+      validationSchema={FullNameSchema}
+      onSubmit={value => handleSubmit(value)}
+      
+      >
+        {({ handleChange, handleBlur, setFieldTouched, handleSubmit, errors, touched, values }) => (
         
         <ImageBackground
         source={SpiralBackground} 
@@ -38,30 +96,55 @@ export default function SignUpOne() {
                 alignItems:'center',
                 // backgroundColor:'green',
             }}>
+
+
+
+
             
             <TextInput
                 style={styles.input}
                     placeholder="Full Name"
-                    onChangeText={lastName=>changeLastName(lastName)}
-                    value={lastName}
+                    onChangeText={handleChange('fullName')}
+                    value={values.fullName}
+                    onBlur={handleBlur('fullName')}
                     >
+
                     </TextInput>
+
+                    {touched.fullName && errors.fullName && (<Text style={styles.errorMessage}>{errors.fullName}</Text>)}
+
+
+            
 
                     <ActionButton 
                     title={'Next'} 
-                    onPress={()=> navigation.navigate('SignUpTwo')} 
+                    onPress={handleSubmit} 
                     // backgroundColor={{backgroundColor:'blue'}}
                     />
 
 
             </View>
+           
+
+
             </ImageBackground>
-        
+          )}
+            </Formik> 
     </View>
+
+    </TouchableWithoutFeedback>
+     </KeyboardAvoidingView>
   )
 }
 
 const styles = StyleSheet.create({
+
+    container:{
+        flex:1,
+        width:'100%',
+        // alignItems:'center',
+        // justifyContent:'center',
+    },
 
     input:{
         fontSize:17,

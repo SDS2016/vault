@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,TextInput,ImageBackground, } from 'react-native'
+import { StyleSheet, Text, View,TextInput,ImageBackground, Alert } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import ActionButton from '@components/Buttons/ActionButton';
@@ -175,7 +175,7 @@ const SignUpTwo = () => {
                 placeholder="Gender"
                 onChangeText={gender=>changeGender(gender)}
                 value={gender}
-                onPress={}
+                // onPress={}
             
             />
         

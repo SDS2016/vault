@@ -40,7 +40,7 @@ const BlankScreen = ({navigation}) => {
                     type: 'success',
                     text1: 'Cart updated',
                     text2: 'Product removed from cart successfully',
-                    position: 'bottom',
+                    position: 'top',
                 }); 
                 setProducts(newProductList);
             }

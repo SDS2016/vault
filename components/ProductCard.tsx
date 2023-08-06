@@ -4,6 +4,9 @@ import ProductAvailabilityBar from './ProductAvailabilityBar'
 import FormatCurrency from '@utils/utils';
 import React from 'react'
 
+
+
+
 const ProductCard =(props)=> {
   let product = props.productInfo.item;
   const navigation = useNavigation();
@@ -13,7 +16,7 @@ const ProductCard =(props)=> {
   }
 
   return (
-    <TouchableOpacity style={styles.container} onPress={ViewProduct}>
+    <TouchableOpacity style={styles.container} activeOpacity={.9} onPress={ViewProduct}>
       <View style={styles.innerContainer}> 
               
               <View style={{height:"75%",  alignItems:'center', }}>

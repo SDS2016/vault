@@ -6,6 +6,8 @@ import RoundActionButton from '@components/Buttons/RoundActionButton'
 import FormatCurrency from '@utils/utils';
 
 
+import ButtonTemp from '@components/Buttons/ButtonTemp';
+
 ////////////// import vault logo /////////////
 import HeartButton from "@assets/heart-button.png";
 
@@ -29,7 +31,7 @@ const ProductPage = ({navigation,route}) => {
             style={{
                 flex:.5,
                 width:'100%',
-                // backgroundColor:'green',
+                backgroundColor:'white',
             }}
             >
 
@@ -38,7 +40,7 @@ const ProductPage = ({navigation,route}) => {
                         flex:.8,
                         width:'100%',
                         height:300,
-                        backgroundColor:'white',
+                        // backgroundColor:'green',
                         padding:10,
                         marginTop:15,
                       }}      
@@ -63,7 +65,7 @@ const ProductPage = ({navigation,route}) => {
                   width:'100%',
                   //  justifyContent:'center',
                   alignItems:'center',
-                  // backgroundColor:'blue',
+                  backgroundColor:'white',
                   padding:18,
               }}
               >
@@ -82,6 +84,9 @@ const ProductPage = ({navigation,route}) => {
                   >
                   <PriceLabel price={FormatCurrency(product.default_price.unit_amount/100,product.default_price.currency)}/>
                   
+                  <ButtonTemp
+                  source={require('/Users/ericfreeman/vaultApp/assets/buttonStar.png')}
+                  />
 
                   </View>
 

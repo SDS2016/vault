@@ -28,6 +28,7 @@ const AuthStack = () => {
             title:"",
             headerShown:false,
             // headerLargeStyle:true,
+            // gestureEnabled:false
         }}
       >
       <Stack.Screen options={{headerShown:false}} name="LoginSignUp" component={LoginSignUp} />
