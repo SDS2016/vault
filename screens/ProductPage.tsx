@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, SafeAreaView,Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView,Image, ScrollView, TouchableOpacity } from 'react-native'
 import PriceLabel from '@components/PriceLabel'
 import GradingComp from '@components/GradingComp'
 import RoundActionButton from '@components/Buttons/RoundActionButton'
@@ -33,36 +33,42 @@ const ProductPage = ({navigation,route}) => {
     <View
       style={styles.container}>
 
-            <View
-            style={{
-                flex:.4,
-                width:'100%',
-                backgroundColor:'white',
-            }}
-            >
+{/* /////////////////////// image container for product onPress goes to individual product/////// */}
+         
+              <View
+                  style={{
+                      flex:.4,
+                      width:'100%',
+                      backgroundColor:'green',
+                  }}
+                  > 
+                  <TouchableOpacity
+                    activeOpacity={.8}
+                    onPress={()=>navigation.navigate('ImageCarouselProductPage')}
+                    style={{
+                      flex:.8,
+                      width:'100%',
+                      height:300,
+                      backgroundColor:'white',
+                      padding:10,
+                      marginTop:15,
+                    }} 
+                    >  
+                        <Image
+                          style={{
+                            resizeMode:'contain',
+                            height: '100%',
+                            width: '100%',
+                            // marginTop:50,
+                            // marginBottom:10,
+                          }}
+                          source={{uri:product.images[0]}}
+                        />
+                        
+                    </TouchableOpacity>
+              </View>
 
-                  <View
-                      style={{
-                        flex:.8,
-                        width:'100%',
-                        height:300,
-                        backgroundColor:'white',
-                        padding:10,
-                        marginTop:15,
-                      }}      
-                  >
-                    <Image
-                      style={{
-                        resizeMode:'contain',
-                        height: '100%',
-                        width: '100%',
-                        // marginTop:50,
-                        // marginBottom:10,
-                      }}
-                      source={{uri:product.images[0]}}
-                    />
-                    </View>
-            </View>
+{/*//////////////////////////////////////////////////////////////////// */}
 
 
               <View

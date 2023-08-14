@@ -7,15 +7,17 @@ const ImageCarouselProductPage = () => {
     <View 
       style={{
         flex:1,
-        justifyContent:'center',
+
+        // justifyContent:'center',
         alignItems:'center',
-        // backgroundColor:'blue',
+        backgroundColor:'white',
       }}
       >
       <View
         style={{
           flex:.4,
           width:'100%',
+          marginTop:'20%',
           // backgroundColor:'green',
         }}
       >
@@ -24,14 +26,14 @@ const ImageCarouselProductPage = () => {
           style={{
             height:'100%',
             width:'100%',
-            resizeMode:'contain',
+            resizeMode:'cover',
           }}
           source={{uri:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/wohf5k8sjdmgogckoczk/air-jordan-1-mid-shoes-D8g1Qq.png'}}
         />
 
 
       </View>
-      <PriceLabel/>
+      
     </View>
   )
 }

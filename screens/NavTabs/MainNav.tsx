@@ -171,10 +171,14 @@ function AppScreens() {
         }}/> */}
 
         <Stack.Screen 
-        name="Product Page Image Carousel"  
+        name="ImageCarouselProductPage"  
+        
         component={ImageCarouselProductPage}
         options={{
+          title:'',
+          headerTintColor:"black",
           headerShown:true,
+          headerBackTitleVisible:false,
         }}
         />
 
