@@ -26,6 +26,8 @@ const FullNameSchema = Yup.object().shape({
       .max(20, '')
       .required('Required')
       .matches(/^[a-z ,.'-]+$/i,'please enter a valid name'),
+
+      
   
   });
 
@@ -45,13 +47,16 @@ export default function SignUpOne() {
     })
     .catch((error) => {
             alert(error);
-        });navigation.navigate('SignUpTwo');
+        });navigation.navigate('SignUpTwo'|| 'SignUpThree', 
+        {fullName: values.fullName}
+        );
         
     
     }
 
 
-
+    // {   screen:'SignUpThree',
+    // params:{fullName: values.fullName}}
 
 
   return (
@@ -68,6 +73,7 @@ Keyboard.dismiss(); }}>
     <View
     style={{
         flex:1,
+        width:'100%',
         alignItems:'center',
     }}
     >
@@ -88,6 +94,7 @@ Keyboard.dismiss(); }}>
         style={{flex:1, width:'100%',}}>
 
             <AuthWhiteOverlay/>
+
             <View 
             style={{
                 flex:.4,

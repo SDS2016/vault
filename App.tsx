@@ -4,7 +4,8 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
+import {GestureHandlerRootView }from 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -22,11 +23,19 @@ import SubscriptionPrompt from './screens/SubscriptionPrompt';
 import MainNav from '@screens/NavTabs/MainNav';
 import BlankScreen from '@components/BlankScreen';
 import BagTotal from './screens/BagTotal';
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import BagProductCheckout from '@components/BagProductCheckout';
 import Toast from 'react-native-toast-message';
 import Config from "react-native-config";
 import { StripeProvider } from '@stripe/stripe-react-native';
+
+import BottomSheetTemp from '@components/BottomSheetTemp';
+
+import ModalSheetTemp from '@components/ModalSheetTemp';
+
+import TestBlank from '@components/TestBlank';
+
+import Testing from '@components/Testing';
 
 
 
@@ -37,11 +46,16 @@ function App(): JSX.Element {
     <StripeProvider
       publishableKey={Config.STRIPE_API_KEY}
     >
+      
       <NavigationContainer>
-        <AuthStack/>
+        <MainNav/>
         <Toast/>
       </NavigationContainer>
+      
     </StripeProvider>
+    // <Testing/>
+    
+    
   );
 }
 

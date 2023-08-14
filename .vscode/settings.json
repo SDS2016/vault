@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
+        "datetimepicker",
         "firestore",
+        "Formik",
+        "Pressable",
         "Swiper",
         "Xbutton"
     ]

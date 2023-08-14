@@ -18,9 +18,9 @@ import GradingComp from '@components/GradingComp';
 
 const SwiperScreen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'green', }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
        <Swiper
-            cards={['wjjl', 'kok', 'dfj', 'dhjj', 'hKSj', 'YUO', 'HPY']}
+            cards={['wjjl', 'kok', 'dfm', 'dmjj', 'Sj', 'UO', 'HPY','sakb']}
             renderCard={(card) => {
                 return (
                   <View style={styles.cardContainer}>
@@ -156,6 +156,10 @@ const SwiperScreen = () => {
             onSwiped={(cardIndex) => {console.log(cardIndex)}}
             onSwipedAll={() => {console.log('onSwipedAll')}}
             cardIndex={0}
+            stackScale={10}
+            disableTopSwipe={true}
+            disableBottomSwipe={true}
+            stackSeparation={10}
             backgroundColor={'#ffffff'}
            >
             
@@ -174,6 +178,7 @@ const styles = StyleSheet.create({
     flex: .86,
     borderRadius: 30,
     justifyContent: "center",
+    backgroundColor:'white',
     
   },
 

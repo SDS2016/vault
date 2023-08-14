@@ -91,12 +91,14 @@ const BlankScreen = ({navigation}) => {
     <View
     style={{
         flex:1,
+        
         // justifyContent:'center',
         alignItems:'center',
+        // backgroundColor:'purple',
         
     }}
     >
- <LinearGradient
+ {/* <LinearGradient
     
     start={{x:.5, y:.8}}
     end={{x:.5, y:0.1}}
@@ -110,7 +112,7 @@ const BlankScreen = ({navigation}) => {
 
 
         }}
-    />
+    /> */}
     
 
  
@@ -200,11 +202,12 @@ export default BlankScreen
 const styles = StyleSheet.create({
 
     checkOut:{
-        flex:.77,
+        flex:1,
         width:'100%',
+        // marginTop:20,
         // marginTop:'25%',
-        // backgroundColor:'yellow',
-        padding:'2%',
+        backgroundColor:'white',
+        // padding:'2%',
         // justifyContent:'center',
         alignItems:'center',
 

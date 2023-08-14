@@ -42,10 +42,10 @@ const styles = StyleSheet.create({
   container:{
     flexDirection:'column',
     alignItems:'center',
-    height:60,
+    height:80,
     width:150,
     justifyContent:'space-between',
-    // backgroundColor:'green',
+    // backgroundColor:'yellow',
   },
 
   text:{

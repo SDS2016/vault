@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image, Pressable,  } from 'react-native'
+import { StyleSheet, Text, View,Image, Pressable,TouchableOpacity  } from 'react-native'
 import { useState } from 'react';
 import React from 'react'
 
@@ -17,14 +17,20 @@ const ButtonTemp = ({source}) => {
 
   return (
 
-    <Pressable
+    <TouchableOpacity
+
+    activeOpacity={.8}
     
     style={[{
-        height:65,
-        width:65,
+        height:52,
+        width:52,
+        padding:8,
         borderRadius:100,
         justifyContent:'center',
-        alignItems:'center',borderRadius:100, backgroundColor }]}
+        alignItems:'center',
+        borderColor:'#c3c3c3', 
+        borderWidth:2,
+        backgroundColor:'white' }]}
     onPressIn={onPressInHandler}
     onPressOut={onPressOutHandler}
     >
@@ -41,18 +47,17 @@ const ButtonTemp = ({source}) => {
         > */}
             <Image
             style={{
-             height:40,
-             width:40,
-             
-             resizeMode:'cover',
-             tintColor:'white',
+             height:30,
+             width:30,
+             resizeMode:'contain',
+             tintColor:'black',
             
             }}
             source={source}
 
             />
         {/* </View> */}
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 

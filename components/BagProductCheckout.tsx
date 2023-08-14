@@ -11,7 +11,7 @@ const BagProductCheckout = (props) => {
         <View
             style={{
                 height: 160,
-                width: '100%',
+                minWidth: '94%',
                 borderRadius: 20,
                 backgroundColor: '#d1d1d1',
                 justifyContent: 'center',
@@ -28,7 +28,8 @@ const BagProductCheckout = (props) => {
                 <View
                     style={{
                         height: '100%',
-                        width: '35%',
+                        width: '38%',
+                        paddingLeft:10,
                         justifyContent: 'center',
                         alignItems: 'center',
                         // backgroundColor:'blue',
@@ -39,6 +40,7 @@ const BagProductCheckout = (props) => {
                             height: '100%',
                             width: '100%',
                             resizeMode: 'contain',
+                           
                             // backgroundColor:'yellow',
                         }}
                         source={{ uri: props.product.images[0] }}
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
 
     innerContainer: {
         height: '85%',
-        width: '94%',
+        maxWidth: '88%',
         borderRadius: 16,
         flexDirection: 'row',
         backgroundColor: '#ffffff',

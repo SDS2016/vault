@@ -1,13 +1,19 @@
 import { StyleSheet, Text, View,TextInput,ImageBackground,SafeAreaView } from 'react-native'
 import AuthWhiteOverlay from '../../components/AuthWhiteOverlay';
 import ActionButton from '../../components/Buttons/ActionButton';
+import { useRoute } from '@react-navigation/native';
 import React from 'react'
 
+/////// form imports /////////
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 ////////////// import assets /////////////
 import SpiralBackground from "@assets/spiralbackgroundauth.png";
 
 const SignUpThree = () => {
+
+    const route = useRoute()
 
     const [email, changeEmail] = React.useState('');
     const [password, changePassword] = React.useState('');
@@ -18,6 +24,7 @@ const SignUpThree = () => {
     <View
     style={{
         flex:1,
+        paddingTop:'10%',
         alignItems:'center',
     }}
     >
@@ -39,6 +46,7 @@ const SignUpThree = () => {
                 // backgroundColor:'green',
             }}>
             
+            <SafeAreaView>
             <TextInput
                 style={styles.input}
                     placeholder="Email"
@@ -69,7 +77,7 @@ const SignUpThree = () => {
                     </TextInput>
 
 
-
+                    </SafeAreaView>
 
                     <ActionButton 
                     title={'Next'} 
@@ -77,6 +85,14 @@ const SignUpThree = () => {
                     // backgroundColor={{backgroundColor:'blue'}}
                     />
 
+           <Text> fullName: {route.params.name}</Text>
+           <Text> address: {route.params.address}</Text>
+           <Text> city: {route.params.city}</Text>
+           <Text> state: {route.params.state}</Text>
+           <Text> D.O.B: {route.params.dateOfBirth}</Text>
+           <Text> gender: {route.params.gender}</Text>
+           <Text> phone: {route.params.phone}</Text>
+           
 
             </View>
             </ImageBackground>

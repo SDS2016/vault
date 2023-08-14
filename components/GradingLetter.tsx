@@ -14,9 +14,9 @@ export default GradingLetter
 const styles = StyleSheet.create({
 
     container:{
-        height:30,
-        width:30,
-        borderRadius:25,
+        height:40,
+        width:40,
+        borderRadius:50,
         justifyContent:'center',
         alignItems:'center',
         margin:2,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
     text:{
         fontFamily:'Helvetica Neue',
-        fontSize:15, 
+        fontSize:20, 
         color:'white',
         fontWeight:"500", 
     },

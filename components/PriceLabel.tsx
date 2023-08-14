@@ -11,7 +11,7 @@ const PriceLabel = ({price}) => {
     height:60,
     width:150,
     // flexGrow:0,
-    backgroundColor:'yellow',
+    // backgroundColor:'yellow',
 
     }}
     >

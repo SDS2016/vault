@@ -5,6 +5,7 @@ import TabUnderlay from '../../components/TabUnderlay';
 
 ////////////// import vault logo /////////////
 import SearchIcon from '@assets/search.png';
+// import ModalSheetTemp from '@components/ModalSheetTemp';
 
 ////////////// import API functions /////////////
 import { getProducts } from '@api/StripeIntegration';
@@ -75,6 +76,8 @@ const Search = () => {
           />
         }
       </View>
+
+      {/* <ModalSheetTemp/> */}
     </View>
   )
 }

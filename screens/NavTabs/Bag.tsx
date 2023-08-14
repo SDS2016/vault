@@ -6,7 +6,16 @@ import BagProductCheckout from '@components/BagProductCheckout';
 
 import React, {useEffect, useState} from 'react';
 
+import ModalSheetTemp from '@components/ModalSheetTemp';
+
+
+
+
+
+
 const Cart = ({navigation}) => {
+
+  
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -50,7 +59,7 @@ const Cart = ({navigation}) => {
 
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',paddingTop:40,backgroundColor:'white', }}>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',marginBottom:160, }}>
         {
           products.length <= 0 ?(
@@ -72,6 +81,8 @@ const Cart = ({navigation}) => {
           ):null
         }
 
+
+       
       </View>
     </View>
   )

@@ -11,12 +11,15 @@ import ButtonTemp from '@components/Buttons/ButtonTemp';
 ////////////// import vault logo /////////////
 import HeartButton from "@assets/heart-button.png";
 
+import SizeButton from '@components/SizeButton';
+
 const ProductPage = ({navigation,route}) => {
   const product = route.params.product;
 
   const changeTitle = () => {
     navigation.setOptions({
       title: product.name, // Replace 'New Title' with your desired new title
+
     });
   };
 
@@ -25,11 +28,14 @@ const ProductPage = ({navigation,route}) => {
   },[]);
 
   return (
-    <>
-      <View style={styles.container}>
+
+
+    <View
+      style={styles.container}>
+
             <View
             style={{
-                flex:.5,
+                flex:.4,
                 width:'100%',
                 backgroundColor:'white',
             }}
@@ -40,7 +46,7 @@ const ProductPage = ({navigation,route}) => {
                         flex:.8,
                         width:'100%',
                         height:300,
-                        // backgroundColor:'green',
+                        backgroundColor:'white',
                         padding:10,
                         marginTop:15,
                       }}      
@@ -61,7 +67,7 @@ const ProductPage = ({navigation,route}) => {
 
               <View
               style={{
-                  flex:.5,
+                  flex:.6,
                   width:'100%',
                   //  justifyContent:'center',
                   alignItems:'center',
@@ -74,23 +80,74 @@ const ProductPage = ({navigation,route}) => {
                   style={{
                       width:'100%',
                       flexDirection:'row',
+                      justifyContent:'space-between',
                       borderBottomColor:'black',
                       paddingBottom:15,
                       borderBottomWidth:5,
                       marginBottom:5,
-                      backgroundColor:'pink',
+                      // backgroundColor:'pink',
+                      alignItems:'center',
 
                   }}
                   >
                   <PriceLabel price={FormatCurrency(product.default_price.unit_amount/100,product.default_price.currency)}/>
-                  
+
+                
+{/* ///////////////// share , like, favorites button container///////// */}
+                <View 
+                  style={{
+                    flex:1,
+                    flexDirection:'row',
+                    justifyContent:'space-evenly',
+                    // backgroundColor:'blue',
+                    marginLeft:11,
+                    marginRight:11,
+                  }}
+                  >
                   <ButtonTemp
                   source={require('/Users/ericfreeman/vaultApp/assets/buttonStar.png')}
                   />
 
+                  <ButtonTemp
+                  source={require('/Users/ericfreeman/vaultApp/assets/buttonHeart.png')}
+                  />
+                  
+                  <ButtonTemp
+                  source={require('/Users/ericfreeman/vaultApp/assets/buttonShare.png')}
+                  />
                   </View>
 
+
+{/* ////////////////////////////////////////////////////// */}
+                  </View>
+
+
+          
+
                   {/* <GradingComp/> */}
+
+                  <View
+                  style={{
+                    flexDirection:'row',
+                    width:'100%',
+                    height:80,
+                    justifyContent:'space-between',
+                    // backgroundColor:'green',
+                  }}
+                  >
+                    <View
+                    style={{
+                      height:80,
+                      width:170,
+                      // backgroundColor:'pink',
+                      flexDirection:'column-reverse',
+
+                    }}
+                    >
+                      <SizeButton onPress={''} title={'Size'}/>
+                    </View>
+                  <GradingComp/>
+                  </View>
 
                   <RoundActionButton title={'ADD'} product={product}/>
                   
@@ -116,7 +173,16 @@ const ProductPage = ({navigation,route}) => {
                             fontFamily:'Helvetica Neue',
                             fontSize:24, 
                             fontWeight:"500", 
-                            }}>{product.name}</Text>
+                            }}>Product Details</Text>
+
+                          {/* <Text 
+                          style={{  
+                            fontFamily:'Helvetica Neue',
+                            fontSize:24, 
+                            fontWeight:"500", 
+                            }}>{product.name}</Text> */}
+
+
                       </View>
 
                         <ScrollView showsVerticalScrollIndicator={true} style={{ flexDirection:'column',  }}>
@@ -136,9 +202,9 @@ const ProductPage = ({navigation,route}) => {
 
         
       </View>
-    </>
 
-    
+
+
   )
 }
 

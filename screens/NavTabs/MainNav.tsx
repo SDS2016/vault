@@ -139,6 +139,7 @@ function AppScreens() {
         name="Product Page" 
         component={ProductPage} 
         options={{
+          headerTintColor:"black",
           headerShown:true,
           headerBackTitleVisible:false,
         }}
@@ -147,6 +148,7 @@ function AppScreens() {
         name="Blank Screen"
         component={BlankScreen}
         options={{
+          headerTintColor:"black",
           headerShown:true,
           headerBackTitleVisible:false,
         }}/>
@@ -155,7 +157,7 @@ function AppScreens() {
         name="Subscription Prompt"
         component={SubscriptionPrompt}
         options={{
-          headerShown:true,
+          headerShown:false,
           headerBackTitleVisible:false,
         }}
         />

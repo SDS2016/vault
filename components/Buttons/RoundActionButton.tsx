@@ -17,7 +17,7 @@ const RoundActionButton = ({ title, product, color, backgroundColor}) => {
             type: 'error',
             text1: 'Cart error',
             text2: 'Product already in cart',
-            position	:'bottom',
+            position	:'top',
           });
         }
         else{
@@ -27,7 +27,7 @@ const RoundActionButton = ({ title, product, color, backgroundColor}) => {
               type: 'error',
               text1: 'Cart error',
               text2: 'You can only have 3 products in your cart',
-              position	:'bottom',
+              position	:'top',
             });
             return;
           }
@@ -39,7 +39,7 @@ const RoundActionButton = ({ title, product, color, backgroundColor}) => {
             type: 'success',
             text1: 'Cart updated',
             text2: 'Product added to bag successfully',
-            position	:'bottom',
+            position	:'top',
           });
         }
       }
@@ -54,7 +54,7 @@ const RoundActionButton = ({ title, product, color, backgroundColor}) => {
           type: 'success',
           text1: 'Cart updated',
           text2: 'Product added to bag successfully',
-          position	:'bottom',
+          position	:'top',
         });
       }
     } catch (error) {
@@ -90,7 +90,7 @@ actionButton:{
     justifyContent:'center',
     padding:7,
     // margin:5,
-    marginTop:30,
+    marginTop:20,
     backgroundColor:'#ffffff',
     borderRadius: 50,
     borderColor:'black',
