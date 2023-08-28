@@ -4,6 +4,7 @@ const FormatCurrency = (amount: number, currency: string) => {
         style: 'currency',
         currency,
         currencyDisplay: 'symbol',
+        minimumFractionDigits: 0,
     });
     return numberFormat.format(amount);
 }
