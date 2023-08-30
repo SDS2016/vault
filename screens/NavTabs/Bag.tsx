@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import ActionButton from '@components/Buttons/ActionButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
@@ -59,8 +59,25 @@ const Cart = ({navigation}) => {
 
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',paddingTop:40,backgroundColor:'white', }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',marginBottom:160, }}>
+    <View 
+    
+      style={{ 
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        paddingTop:40,
+        backgroundColor:'white', }}>
+
+
+      <View 
+      
+        style={{ 
+          flex: 1, 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          marginBottom:160, }}>
+
+
         {
           products.length <= 0 ?(
             <>

@@ -5,7 +5,6 @@
  * @format
  */
 import 'react-native-gesture-handler';
-import {GestureHandlerRootView }from 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -14,7 +13,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthStack from '@screens/Auth/AuthStack';
 import ProductPage from './screens/ProductPage';
@@ -36,7 +34,9 @@ import ModalSheetTemp from '@components/ModalSheetTemp';
 import TestBlank from '@components/TestBlank';
 
 import Testing from '@components/Testing';
-
+//////// Modal imports ////////////////
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import {GestureHandlerRootView }from 'react-native-gesture-handler';
 
 
 
@@ -46,14 +46,19 @@ function App(): JSX.Element {
     <StripeProvider
       publishableKey={Config.STRIPE_API_KEY}
     >
-      
-      <NavigationContainer>
-        <MainNav/>
-        <Toast/>
-      </NavigationContainer>
-      
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <BottomSheetModalProvider>
+           <NavigationContainer>
+                  {/* <ModalSheetTemp/>      */}
+                <MainNav/>
+               <Toast/>
+            </NavigationContainer>
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
     </StripeProvider>
     // <Testing/>
+
+    
     
     
   );

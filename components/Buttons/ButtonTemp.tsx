@@ -3,7 +3,7 @@ import { useState } from 'react';
 import React from 'react'
 
 
-const ButtonTemp = ({source}) => {
+const ButtonTemp = ({source,onPress}) => {
 
     const [backgroundColor, setBackgroundColor] = useState('');
 
@@ -20,6 +20,7 @@ const ButtonTemp = ({source}) => {
     <TouchableOpacity
 
     activeOpacity={.8}
+    onPress={onPress}
     
     style={[{
         height:52,

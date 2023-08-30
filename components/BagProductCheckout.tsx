@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity,ScrollView} from 'react-native';
 import FormatCurrency from '@utils/utils';
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,17 +13,21 @@ const BagProductCheckout = (props) => {
                 height: 160,
                 minWidth: '94%',
                 borderRadius: 20,
-                backgroundColor: '#d1d1d1',
+                // flexDirection:'column',
+                backgroundColor: '#34e806',
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginBottom: 10,
             }}>
+
+
+
             <View
                 style={styles.innerContainer}
             >
 
 
-                {/* //////// inside the inner container product image and details //////// */}
+{/* //////// inside the inner container product image and details //////// */}
 
                 <View
                     style={{
@@ -32,7 +36,7 @@ const BagProductCheckout = (props) => {
                         paddingLeft:10,
                         justifyContent: 'center',
                         alignItems: 'center',
-                        // backgroundColor:'blue',
+                        backgroundColor:'blue',
                     }}
                 >
                     <Image
@@ -47,6 +51,11 @@ const BagProductCheckout = (props) => {
                     />
                 </View>
 
+{/* ////////////////////////////////////////////////////////////////////////// */}
+
+{/* //////////////////////////////// */}
+
+
                 <View
                     style={{
                         height: '100%',
@@ -54,14 +63,23 @@ const BagProductCheckout = (props) => {
                         padding: 10,
                         // justifyContent:'center',
                         alignItems: 'center',
-                        // backgroundColor:'green',
+                        backgroundColor:'yellow',
                         flexDirection: 'column',
 
                     }}
                 >
 
-                    <Text style={{ fontFamily: 'Helvetica Neue', fontSize: 11, fontWeight: "500", }} ellipsizeMode='tail' numberOfLines={1}>{props.product.description}</Text>
+                    <Text 
+                    style={{ 
+                    fontFamily: 'Helvetica Neue', 
+                    fontSize: 11, 
+                    fontWeight: "500",
+                    backgroundColor:'pink', }} 
+                    ellipsizeMode='tail' 
+                    numberOfLines={1}>{props.product.description}</Text>
 
+
+{/* ///////////////////// retail price container ////////////////////// */}
                     <View
                         style={styles.retailPrice}
                     >
@@ -86,9 +104,11 @@ const BagProductCheckout = (props) => {
                         >{FormatCurrency(props.product.default_price.unit_amount / 100, props.product.default_price.currency)}</Text>
                     </View>
 
+{/* ////////////////////////////////////////////////////////////////// */}
 
 
 
+{/* ////////////////////////////// size container ///////////////////// */}
 
                     <View
                         style={styles.size}
@@ -131,7 +151,13 @@ const BagProductCheckout = (props) => {
                     </View>
 
 
-                    <TouchableOpacity style={styles.removeProduct} onPress={()=>props.removeProduct(props.product)}>
+{/* ////////////////////////////////////////////////////////// */}
+
+
+
+                    <TouchableOpacity 
+                        style={styles.removeProduct} 
+                        onPress={()=>props.removeProduct(props.product)}>
                         <Text style={{color:'red'}}>Remove from cart</Text>
                     </TouchableOpacity>
 

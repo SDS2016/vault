@@ -1,17 +1,26 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, SafeAreaView,Image, ScrollView, TouchableOpacity } from 'react-native'
+import React, { useEffect,useCallback, useMemo, useRef } from 'react';
+import { StyleSheet, Text, View, SafeAreaView,Image,Share, Alert, ScrollView, TouchableOpacity } from 'react-native'
 import PriceLabel from '@components/PriceLabel'
 import GradingComp from '@components/GradingComp'
 import RoundActionButton from '@components/Buttons/RoundActionButton'
 import FormatCurrency from '@utils/utils';
+import { BottomSheetModal,BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 
+///////// modalSheet closes modal ////////
 
+////////////////////////////////////////////////////
 import ButtonTemp from '@components/Buttons/ButtonTemp';
 
 ////////////// import vault logo /////////////
 import HeartButton from "@assets/heart-button.png";
 
 import SizeButton from '@components/SizeButton';
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
 
 const ProductPage = ({navigation,route}) => {
   const product = route.params.product;
@@ -27,6 +36,57 @@ const ProductPage = ({navigation,route}) => {
     changeTitle();
   },[]);
 
+//////////////// share function //////////////////
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error: any) {
+      Alert.alert(error.message);
+    }
+  }
+
+////////////////////// BottomSheetModal /////////////////////////////
+ // ref
+ const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+ // variables
+//  const snapPoints = useMemo(() => ['39.9%', '40%'], []);
+
+ // callbacks
+ const handlePresentModalPress = useCallback(() => {
+   bottomSheetModalRef.current?.present();
+ }, []);
+ const handleSheetChanges = useCallback((index: number) => {
+   console.log('handleSheetChanges', index);
+ }, []);
+
+ const renderBackdrop = useCallback(
+  props => (
+    <BottomSheetBackdrop
+      {...props}
+      opacity={.3}
+      // disappearsOnIndex={0}
+      appearsOnIndex={0}
+    />
+  ),
+  []
+);
+
+
+
   return (
 
 
@@ -39,7 +99,7 @@ const ProductPage = ({navigation,route}) => {
                   style={{
                       flex:.4,
                       width:'100%',
-                      backgroundColor:'green',
+                      backgroundColor:'white',
                   }}
                   > 
                   <TouchableOpacity
@@ -119,6 +179,7 @@ const ProductPage = ({navigation,route}) => {
                   />
                   
                   <ButtonTemp
+                  onPress={onShare}
                   source={require('/Users/ericfreeman/vaultApp/assets/buttonShare.png')}
                   />
                   </View>
@@ -150,7 +211,9 @@ const ProductPage = ({navigation,route}) => {
 
                     }}
                     >
-                      <SizeButton onPress={''} title={'Size'}/>
+
+                      <SizeButton onPress={handlePresentModalPress} title={'Size'}/>
+
                     </View>
                   <GradingComp/>
                   </View>
@@ -202,9 +265,24 @@ const ProductPage = ({navigation,route}) => {
                   </View>
 
 
+{/* /////////////////////// BottomSheetModal ///////////////////*/}
+<BottomSheetModal
+          enablePanDownToClose={true}
+          backdropComponent={renderBackdrop}
+          ref={bottomSheetModalRef}
+          index={0}
+          // snapPoints={snapPoints}
+          snapPoints={['40%']}
+          onChange={handleSheetChanges}
+        >
+          <View style={styles.contentContainer}>
+           
+          </View>
+        </BottomSheetModal>
+
               </View>
 
-
+          
 
         
       </View>
@@ -219,10 +297,12 @@ export default ProductPage
 const styles = StyleSheet.create({
  container:{
     flex:1,
-    // alignItems:'center',
-    // justifyContent:'center',
-    
  },
+ contentContainer: {
+  flex: 1,
+  alignItems: 'center',
+},
+
 
 //  productContainer:{
 //     height:'90%',

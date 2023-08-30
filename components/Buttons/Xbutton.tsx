@@ -7,8 +7,8 @@ import RedXButton from '@assets/red-x-button.png';
 const Xbutton = () => {
 
   const animation = new Animated.Value(0);
-  const inputRange = [0, 5];
-  const outputRange = [1, 9];
+  const inputRange = [0, 1];
+  const outputRange = [1, .90];
   const scale = animation.interpolate({inputRange, outputRange});
 
   const onPressIn = () => {

@@ -10,7 +10,7 @@ const TabUnderlay = () => {
     colors={['#ffffff','#ffffffd2', '#ffffff26', '#ffffff00']}
     style={{
         width:'100%',
-        height:250,
+        height:210,
         position:'absolute',
         bottom:0,
 

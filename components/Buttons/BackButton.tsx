@@ -1,13 +1,49 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View,Image, Animated ,TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 
 
 ////////////// assets import /////////////
 import BackArrowButton from '@assets/black-arrow-button.png';
 
-const BackButton = () => {
+const BackButton = (props) => {
+
+  const { onPress, text, icon } = props
+
+  const animatedValue = new Animated.Value(0)
+
+  const animatedValueInterpolateScale = animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [1,0.90]
+  })
+
+  const pressInHandler = () => {
+      Animated.timing(
+          animatedValue,
+          {
+              toValue: 1,
+              duration: 150,
+              useNativeDriver:true
+          }
+      ).start()
+  }
+
+  const pressOutHandler = () => {
+      Animated.timing(
+          animatedValue,
+          {
+              toValue: 0,
+              duration: 150,
+              useNativeDriver:true
+          }
+      ).start()
+  }
+
+
   return (
-    <View
+
+
+    <TouchableWithoutFeedback onPress={onPress} onPressIn={pressInHandler} onPressOut={pressOutHandler}>
+    <Animated.View
     style={{
         
         height:55,
@@ -16,7 +52,7 @@ const BackButton = () => {
         borderRadius:50,
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'white',
+        backgroundColor:'#ffffff',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -24,8 +60,9 @@ const BackButton = () => {
         },
         shadowOpacity: 0.37,
         shadowRadius: 7.49,
-
         elevation: 12,
+        overflow: 'visible', 
+        transform: [{ scaleX: animatedValueInterpolateScale }, { scaleY:  animatedValueInterpolateScale }] 
     }}
     >
          <Image
@@ -38,7 +75,8 @@ const BackButton = () => {
             }}
             source={BackArrowButton}
             />
-    </View>
+    </Animated.View>
+    </TouchableWithoutFeedback>
   )
 }
 

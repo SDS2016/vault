@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import ActionButton from '../components/Buttons/ActionButton'
 import ChecklistTexts from '../components/ChecklistTexts'
-import React from 'react'
+import React from 'react';
+// import ModalSheetTemp from '@components/ModalSheetTemp';
 
-const SubscriptionPrompt = () => {
+
+const SubscriptionPrompt = ({navigation}) => {
+
+
   return (
     <View
         style={{
@@ -35,10 +39,6 @@ const SubscriptionPrompt = () => {
         >
             $40/month
         </Text>
-
-
-
-
 
     <View
          style={{ 
@@ -103,7 +103,7 @@ const SubscriptionPrompt = () => {
 
         </View>
 
-
+    
 
             
         <ActionButton
@@ -112,6 +112,7 @@ const SubscriptionPrompt = () => {
             onPress={()=> navigation.navigate('SignUpThree')} 
             backgroundColor={{backgroundColor:'white'}}
         />
+
       </View>
     </View>
   )
