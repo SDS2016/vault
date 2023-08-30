@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
+import { StyleSheet, Text, View,Image, TouchableOpacity, TouchableWithOutFeedBack } from 'react-native'
 import Swiper from 'react-native-deck-swiper';
 import TabUnderlay from '../../components/TabUnderlay';
 import ProductAvailabilityBar from '../../components/ProductAvailabilityBar';
 import SmallerTabUnderlay from '../../components/SmallerTabUnderlay';
+import {useCallback, useMemo, useRef} from 'react'
 import React from 'react'
 
 //////// product card buttons /////////////////
@@ -13,21 +14,31 @@ import Xbutton from '../../components/Buttons/Xbutton';
 
 ////////////////////
 
+
+
+
+
 import PriceLabel from '../../components/PriceLabel';
 import GradingComp from '@components/GradingComp';
+import ModalSheetTemp from '@components/ModalSheetTemp';
 
-const SwiperScreen = () => {
+const SwiperScreen = ({navigation}) => {
+
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+      
+
        <Swiper
-            cards={['wjjl', 'kok', 'dfm', 'dmjj', 'Sj', 'UO', 'HPY','sakb']}
-            renderCard={(card) => {
+        
+        cards={['wjjl', 'kok', 'dfm', 'jkj', 'kj', 'UfO', 'HPY','kb']}
+        renderCard={(card) => {
+
                 return (
                   <View style={styles.cardContainer}>
 
-
-                      <View style={styles.card}>
-
+                  <View style={styles.card}>
+                    
                         <Text
                           style={{  
                             fontFamily:'Helvetica Neue',
@@ -37,14 +48,16 @@ const SwiperScreen = () => {
                             }}
                         >Air Max 97 “ Obsidian Black ”</Text>
 {/* /////////////////////////// everything above product details /////////////////// */}
-                        <View
-                    style={{  
-                      flex:.9,
-                      // backgroundColor:'green',
-                      }}
-                    
-                    >
 
+                      {/* <TouchableOpacity activeOpacity={.7} onPress={()=> navigation.navigate('ImageCarouselProductPage')}> */}
+                        <View
+                          style={{  
+                            flex:.9,
+                            // backgroundColor:'green',
+                            }}
+                            >
+
+                      
                         <View
                             style={{
                               flex:.6,
@@ -52,34 +65,41 @@ const SwiperScreen = () => {
                               // backgroundColor:'yellow',
                             }}
                           >
+
+                            <TouchableOpacity activeOpacity={.7} onPress={()=> navigation.navigate('ImageCarouselProductPage')}>
                             <Image
                               style={{
                                 height:'100%',
                                 width:'100%',
                                 resizeMode:'contain',
+                                // backgroundColor:'yellow',
                               }}
                               source={{uri:'https://www.pngall.com/wp-content/uploads/13/Nike-Shoes-Jordan-PNG-Pic.png'}}
                             />
+                            </TouchableOpacity>
+
                         </View>
+                        
 
-
-                                <View
-                                style={{
-                                  width:'85%',
-                                  flexDirection:'row',
-                                  justifyContent:'flex-end',
-                                  // backgroundColor:'pink',
-                                }}
-                                >
-                                  <Text
-                                  style={{  
-                                    fontFamily:'Helvetica Neue',
-                                    fontSize:15, 
-                                    marginBottom:10,
-                                    fontWeight:"500", 
-                                    }}
-                                  >Nike</Text>
-                                </View>
+                              
+                                  <View
+                                  style={{
+                                    width:'85%',
+                                    flexDirection:'row',
+                                    justifyContent:'flex-end',
+                                    // backgroundColor:'pink',
+                                  }}
+                                  >
+                                    <Text
+                                    style={{  
+                                      fontFamily:'Helvetica Neue',
+                                      fontSize:15, 
+                                      marginBottom:10,
+                                      fontWeight:"500", 
+                                      }}
+                                    >Nike</Text>
+                                  </View>
+                                
 
 
                             <View
@@ -99,7 +119,12 @@ const SwiperScreen = () => {
                             </View>
 
                     </View>
+                    
+                   
                           
+
+
+
                       </View>
 
                     
@@ -130,6 +155,8 @@ const SwiperScreen = () => {
                         
                       </View>
                       <SmallerTabUnderlay/>
+
+
                             <View
                               style={{
                                 flexDirection:'row',
