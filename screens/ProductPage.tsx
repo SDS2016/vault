@@ -171,15 +171,14 @@ const ProductPage = ({navigation,route}) => {
                   }}
                   >
                   <ButtonTemp
-                  source={require('/Users/ericfreeman/vaultApp/assets/buttonStar.png')}
+                  source={require('@assets/buttonStar.png')}
                   />
 
                   <ButtonTemp
-                  source={require('/Users/ericfreeman/vaultApp/assets/buttonHeart.png')}
+                  source={require('@assets/buttonHeart.png')}
                   />
                   
                   <ButtonTemp
-                  onPress={onShare}
                   source={require('/Users/ericfreeman/vaultApp/assets/buttonShare.png')}
                   />
                   </View>

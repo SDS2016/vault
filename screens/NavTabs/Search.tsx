@@ -24,7 +24,11 @@ const Search = () => {
       })
     }
     else{
-      setProducts([]);
+      // setLoadingProducts(true);
+      getProducts("").then((res: []) => {
+        setLoadingProducts(false);
+        setProducts(res);
+      })
     }
   }
 
@@ -65,7 +69,7 @@ const Search = () => {
             ////////// columnWrapperStyle styles the flatlist items ///////////////
             columnWrapperStyle={{justifyContent:'space-evenly'}}
             contentContainerStyle={{ 
-              paddingTop:20,
+              paddingTop:0,
               height:'100%',
               width:'100%', 
               justifyContent:'space-between',
