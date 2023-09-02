@@ -183,6 +183,7 @@ const SwiperScreen = ({navigation}) => {
             onSwiped={(cardIndex) => {console.log(cardIndex)}}
             onSwipedAll={() => {console.log('onSwipedAll')}}
             cardIndex={0}
+            infinite={true}
             stackScale={10}
             disableTopSwipe={true}
             disableBottomSwipe={true}

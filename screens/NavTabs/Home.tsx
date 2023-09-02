@@ -39,13 +39,13 @@ const Home = () => {
                   <View style={styles.productHighlight}>
                     <Swiper style={styles.wrapper} showsButtons={false} activeDotColor={"black"}>
                       <View style={styles.slide1}>
-                        <Image source={{uri:products[1].images[1]}} style={{height:'100%', width:'100%'}}/>
+                        <Image source={{uri:products[1].images[1]}} style={{height:'80%', width:'80%'}}/>
                       </View>
                       <View style={styles.slide2}>
-                        <Image source={{uri:products[1].images[2]}} style={{height:'80%', width:'90%'}}/>
+                        <Image source={{uri:products[1].images[2]}} style={{height:'80%', width:'100%'}}/>
                       </View>
                       <View style={styles.slide3}>
-                        <Image source={{uri:products[1].images[0]}} style={{height:'80%', width:'90%'}}/>
+                        <Image source={{uri:products[1].images[0]}} style={{height:'80%', width:'100%'}}/>
                       </View>
                     </Swiper>
                   </View>

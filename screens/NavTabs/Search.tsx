@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Image, View, TextInput, TouchableOpacity,ActivityIndicator,FlatList } from 'react-native'
 import ProductCard from '@components/ProductCard';
-import TabUnderlay from '../../components/TabUnderlay';
+import TabUnderlay from '@components/TabUnderlay';
+import LinearGradient from 'react-native-linear-gradient';
 
 ////////////// import vault logo /////////////
 import SearchIcon from '@assets/search.png';
@@ -37,7 +38,7 @@ const Search = () => {
   },[text])
 
   return (
-    <View>
+    <View style={{flex:1}}>
       <View style={styles.textInputContainer}>
         <TextInput
           style={styles.textInput}
@@ -67,21 +68,32 @@ const Search = () => {
             keyExtractor={(item) => item.id}
             numColumns={2}
             ////////// columnWrapperStyle styles the flatlist items ///////////////
-            columnWrapperStyle={{justifyContent:'space-evenly'}}
+            columnWrapperStyle={{justifyContent:'space-evenly',}}
             contentContainerStyle={{ 
-              paddingTop:0,
+              paddingTop:20,
               height:'100%',
               width:'100%', 
-              justifyContent:'space-between',
+              // justifyContent:'space-between',
               // backgroundColor:'pink',
             }}
-            ItemSeparatorComponent={()=><View style={{ marginLeft:20, }}/>}
+            ItemSeparatorComponent={()=><View style={{ marginLeft:0, }}/>}
             showsVerticalScrollIndicator={false}
           />
         }
+        
       </View>
-
-      {/* <ModalSheetTemp/> */}
+      <LinearGradient
+    
+    locations={[0.7,0.4,0.2, 0.1]}
+    colors={['#ffffff','#ffffffd2', '#ffffff26', '#ffffff00']}
+        style={{
+            width:'100%',
+            height:180,
+            position:'absolute',
+            bottom:0,
+            }}
+        >
+    </LinearGradient>
     </View>
   )
 }
