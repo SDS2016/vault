@@ -31,7 +31,7 @@ const SwiperScreen = ({navigation}) => {
 
        <Swiper
         
-        cards={['wjjl', 'kok', 'dfm', 'jkj', 'kj', 'UfO', 'HPY','kb']}
+        cards={['wjjl', 'kok', 'dfm', 'jkjk', 'kkj', 'UfO', 'HPY','kb']}
         renderCard={(card) => {
 
                 return (
@@ -182,13 +182,59 @@ const SwiperScreen = ({navigation}) => {
             }}
             onSwiped={(cardIndex) => {console.log(cardIndex)}}
             onSwipedAll={() => {console.log('onSwipedAll')}}
-            cardIndex={0}
+            // cardIndex={0}
             infinite={true}
-            stackScale={10}
+            stackScale={4}
             disableTopSwipe={true}
             disableBottomSwipe={true}
-            stackSeparation={10}
+            stackSeparation={14}
             backgroundColor={'#ffffff'}
+            animateOverlayLabelsOpacity={true}
+            overlayLabels={{
+              left: {
+                // element: <Text>NOPE</Text> /* Optional */
+                title: 'NOPE',
+                  style: {
+                    label: {
+                      backgroundColor: 'transparent',
+                      borderColor: '#FF1717',
+                      color:'#FF1717',
+                      borderWidth: 5,
+                      fontSize:45,
+                      transform: [{rotate: '15deg'}],
+                    },
+                    wrapper: {
+                      flexDirection: 'column',
+                      alignItems: 'flex-end',
+                      justifyContent: 'flex-start',
+                      marginTop: 60,
+                      marginRight: -35
+                    }
+                  }
+                },
+                right: {
+                // element: <Text>LIKE</Text> /* Optional */
+                title: 'LIKE',
+                  style: {
+                    label: {
+                      backgroundColor: 'transparent',
+                      borderColor: '#060CD6',
+                      color: '#060CD6',
+                      borderWidth: 5,
+                      fontSize:45,
+                      transform: [{rotate: '-15deg'}],
+                    },
+                    wrapper: {
+                      flexDirection: 'column',
+                      alignItems: 'flex-start',
+                      justifyContent: 'flex-start',
+                      marginTop: 60,
+                      marginRight: 35
+                    }
+                  }
+                },
+
+              }}
            >
             
         </Swiper>
