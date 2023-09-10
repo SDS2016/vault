@@ -8,7 +8,10 @@ import InputTemp from '@components/InputTemp';
 import DatePicker from 'react-native-date-picker'
 import PhoneInput from 'react-phone-number-input/react-native-input'
 import RNPickerSelect from 'react-native-picker-select';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import firestore from '@react-native-firebase/firestore';
 import React from 'react';
+import { useEffect } from 'react';
 
 
 //////// form imports ////////////
@@ -18,6 +21,7 @@ import * as Yup from 'yup';
 
 ////////////// import assets /////////////
 import SpiralBackground from "@assets/spiralbackgroundauth.png";
+
 
 
 //////////// yup form validation ////////////////////////
@@ -69,6 +73,30 @@ const addressSchema = Yup.object().shape({
 
 
 
+
+    const getMyObject = async () => {
+            try {
+                const jsonValue = await AsyncStorage.getItem('@fullName')
+                firestore().collection('users').add({
+                fullName: jsonValue,
+                
+            })
+            
+            .catch((error) => {
+                    alert(error);
+                });
+            } catch(e) {
+                
+            // read error
+            }
+
+            console.log(getMyObject())
+
+            
+  
+    
+  }
+
 ////////////////////////////////////////////////////////////
 
 const SignUpTwo = () => {
@@ -113,7 +141,8 @@ const SignUpTwo = () => {
 
 
 
-
+   
+    
 
 
   return (
@@ -386,7 +415,7 @@ style={{
                     />
 
 
-                    <Text> fullName: {route.params.fullName}</Text>
+                    {/* <Text> fullName: {route.params.fullName}</Text> */}
 
                 
 

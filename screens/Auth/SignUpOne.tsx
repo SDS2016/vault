@@ -3,6 +3,7 @@ import { StyleSheet, Text,TextInput, View,SafeAreaView, ImageBackground, Touchab
 import ActionButton from '@components/Buttons/ActionButton';
 import AuthWhiteOverlay from '@components/AuthWhiteOverlay';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import React from 'react'
@@ -31,6 +32,7 @@ const FullNameSchema = Yup.object().shape({
   
   });
 
+ 
 
 
 export default function SignUpOne() {
@@ -42,15 +44,27 @@ export default function SignUpOne() {
 
     const handleSubmit = async (values)=> {
 
-    firestore().collection('users').add({
-        fullName: values.fullName,
-    })
-    .catch((error) => {
-            alert(error);
-        });navigation.navigate('SignUpTwo'|| 'SignUpThree', 
-        {fullName: values.fullName}
-        );
         
+            try {
+                const jsonValue = JSON.stringify(values.fullName);
+                await AsyncStorage.setItem('@fullName', jsonValue);
+                console.log(jsonValue)
+            } catch (e) {
+                alert(e);
+              // saving error
+            }
+          ;navigation.navigate('SignUpTwo');
+
+    // firestore().collection('users').add({
+    //     fullName: values.fullName,
+    // })
+    // .catch((error) => {
+    //         alert(error);
+    //     });navigation.navigate('SignUpTwo');
+
+        // console.log(storeFullName(values))
+
+    // return(storeFullName(values));
     
     }
 

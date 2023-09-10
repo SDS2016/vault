@@ -31,7 +31,7 @@ const SwiperScreen = ({navigation}) => {
 
        <Swiper
         
-        cards={['wjjl', 'kok', 'dfm', 'jkjk', 'kkj', 'UfO', 'HPY','kb']}
+        cards={['wjjl', 'kok', 'dfm', 'kjk', 'kkj', 'UfO', 'HPY','kb']}
         renderCard={(card) => {
 
                 return (
@@ -182,12 +182,12 @@ const SwiperScreen = ({navigation}) => {
             }}
             onSwiped={(cardIndex) => {console.log(cardIndex)}}
             onSwipedAll={() => {console.log('onSwipedAll')}}
-            // cardIndex={0}
+            cardIndex={1}
             infinite={true}
             stackScale={4}
             disableTopSwipe={true}
             disableBottomSwipe={true}
-            stackSeparation={14}
+            // stackSeparation={1}
             backgroundColor={'#ffffff'}
             animateOverlayLabelsOpacity={true}
             overlayLabels={{

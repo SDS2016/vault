@@ -43,22 +43,25 @@ import {GestureHandlerRootView }from 'react-native-gesture-handler';
 function App(): JSX.Element {
 
   return (
-    <StripeProvider
-      publishableKey={Config.STRIPE_API_KEY}
-    >
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <BottomSheetModalProvider>
-           <NavigationContainer>
-                  {/* <ModalSheetTemp/>      */}
-                <MainNav/>
-               <Toast/>
-            </NavigationContainer>
-          </BottomSheetModalProvider>
-        </GestureHandlerRootView>
-    </StripeProvider>
-    // <Testing/>
+    // <StripeProvider
+    //   publishableKey={Config.STRIPE_API_KEY}
+    // >
+    //     <GestureHandlerRootView style={{ flex: 1 }}>
+    //       <BottomSheetModalProvider>
+          //  <NavigationContainer>
+          //         <ModalSheetTemp/>     
+          //         <AuthStack/>
+          //       <MainNav/>
+          //      <Toast/>
+          //   </NavigationContainer>
+    //        </BottomSheetModalProvider>
+    //     </GestureHandlerRootView>
+    // </StripeProvider> 
+    <Testing/>
 
-    
+    // <NavigationContainer>
+    //     <AuthStack/>
+    // </NavigationContainer>
     
     
   );
