@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import PriceLabel from '../components/PriceLabel'
-import React from 'react'
+import { StyleSheet, Text, View, Image } from 'react-native';
+import PriceLabel from '../components/PriceLabel';
+import Swiper from 'react-native-swiper';
+import React from 'react';
 
-const ImageCarouselProductPage = () => {
+const ImageCarouselProductPage = ({navigation,route}) => {
+  const productImages = route.params.images;
+
   return (
     <View 
       style={{
@@ -22,14 +25,18 @@ const ImageCarouselProductPage = () => {
         }}
       >
 
-        <Image
-          style={{
-            height:'100%',
-            width:'100%',
-            resizeMode:'cover',
-          }}
-          source={{uri:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/wohf5k8sjdmgogckoczk/air-jordan-1-mid-shoes-D8g1Qq.png'}}
-        />
+      <View style={styles.productHighlight}>
+        <Swiper style={styles.wrapper} showsButtons={false} activeDotColor={"black"}>
+            {productImages.map((image,index)=>{
+              return(
+
+                <View style={styles.slide1} key={index}>
+                  <Image source={{uri:image}} style={{height:'80%', width:'80%'}}/>
+                </View>
+              )
+            })}
+        </Swiper>
+      </View>
 
 
       </View>
@@ -40,4 +47,25 @@ const ImageCarouselProductPage = () => {
 
 export default ImageCarouselProductPage
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  productHighlight: {
+    height: 250,
+    // padding: 5,
+    width: '100%',
+    marginTop:50,
+    marginBottom:10,
+  },
+  wrapper: {},
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})

@@ -5,6 +5,7 @@ import GradingComp from '@components/GradingComp'
 import RoundActionButton from '@components/Buttons/RoundActionButton'
 import FormatCurrency from '@utils/utils';
 import { BottomSheetModal,BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import Swiper from 'react-native-swiper';
 
 ///////// modalSheet closes modal ////////
 
@@ -24,6 +25,7 @@ import SizeButton from '@components/SizeButton';
 
 const ProductPage = ({navigation,route}) => {
   const product = route.params.product;
+  const productImages = route.params.product.images;
 
   const changeTitle = () => {
     navigation.setOptions({
@@ -102,7 +104,7 @@ const ProductPage = ({navigation,route}) => {
                       backgroundColor:'white',
                   }}
                   > 
-                  <TouchableOpacity
+                  {/* <TouchableOpacity
                     activeOpacity={.8}
                     onPress={()=>navigation.navigate('ImageCarouselProductPage')}
                     style={{
@@ -113,19 +115,22 @@ const ProductPage = ({navigation,route}) => {
                       padding:10,
                       marginTop:15,
                     }} 
-                    >  
-                        <Image
-                          style={{
-                            resizeMode:'contain',
-                            height: '100%',
-                            width: '100%',
-                            // marginTop:50,
-                            // marginBottom:10,
-                          }}
-                          source={{uri:product.images[0]}}
-                        />
+                    >   */}
+
+                      <View style={styles.productHighlight}>
+                        <Swiper style={styles.wrapper} showsButtons={false} activeDotColor={"black"}>
+                            {productImages.map((image,index)=>{
+                              return(
+
+                                <View style={styles.slide1} key={index}>
+                                  <Image source={{uri:image}} style={{height:'80%', width:'80%'}}/>
+                                </View>
+                              )
+                            })}
+                        </Swiper>
+                      </View>
                         
-                    </TouchableOpacity>
+                    {/* </TouchableOpacity> */}
               </View>
 
 {/*//////////////////////////////////////////////////////////////////// */}
@@ -179,7 +184,7 @@ const ProductPage = ({navigation,route}) => {
                   />
                   
                   <ButtonTemp
-                  source={require('/Users/ericfreeman/vaultApp/assets/buttonShare.png')}
+                  source={require('@assets/buttonShare.png')}
                   />
                   </View>
 
@@ -294,14 +299,26 @@ const ProductPage = ({navigation,route}) => {
 export default ProductPage
 
 const styles = StyleSheet.create({
- container:{
-    flex:1,
- },
- contentContainer: {
-  flex: 1,
-  alignItems: 'center',
-},
-
+  container:{
+      flex:1,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  productHighlight: {
+    height: 250,
+    // padding: 5,
+    width: '100%',
+    marginTop:50,
+    marginBottom:10,
+  },
+  wrapper: {},
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 
 //  productContainer:{
 //     height:'90%',
